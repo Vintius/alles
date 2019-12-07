@@ -1,0 +1,75 @@
+.header {
+  width: 100%;
+  position: absolute;
+  height: 100px;
+}
+
+.header__content {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 1900px;
+  padding: 0 40px;
+}
+
+.header__space {
+  width: 100%;
+}
+
+.header__logo {
+  width: 100%;
+  text-align: center;
+}
+
+.header__logoImage {
+  width: 352px;
+  height: 21px;
+  vertical-align: middle;
+  margin-left: 9px;
+}
+
+.header__phone {
+  display: flex;
+  //position: absolute;
+  width: 100%;
+  justify-content: flex-end;
+  align-items: center;
+
+  span {
+    color: $white;
+    font-size: 12px;
+  }
+}
+
+.header__phoneImage {
+  width: 13px;
+  height: 13px;
+  margin-right: 9px;
+}
+
+@media (max-width: $mobile) {
+  .header {
+    height: 60px;
+  }
+
+  .header__content {
+    //padding-top: 19px;
+  }
+
+  .header__space {
+    display: none;
+  }
+
+  .header__logoImage {
+    width: 232px;
+    height: 13px;
+  }
+
+  .header__phone {
+    display: none;
+  }
+}
