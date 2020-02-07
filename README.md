@@ -1,19 +1,7 @@
-# gulp-scss-starter
+# Alles
 
-![GitHub release](https://img.shields.io/github/release/andreyalexeich/gulp-scss-starter.svg)
-[![dependencies Status](https://david-dm.org/andreyalexeich/gulp-scss-starter/status.svg)](https://david-dm.org/andreyalexeich/gulp-scss-starter)
-[![devDependencies Status](https://david-dm.org/andreyalexeich/gulp-scss-starter/dev-status.svg)](https://david-dm.org/andreyalexeich/gulp-scss-starter?type=dev)
-![GitHub stars](https://img.shields.io/github/stars/andreyalexeich/gulp-scss-starter.svg?style=social)
-![GitHub watchers](https://img.shields.io/github/watchers/andreyalexeich/gulp-scss-starter.svg?style=social)
-<a href="https://www.qiwi.com/n/ANDREYALEXEICH">
-<img src="https://img.shields.io/badge/%D0%97%D0%B0%D0%B4%D0%BE%D0%BD%D0%B0%D1%82%D1%8C%20%D0%BD%D0%B0%20%D0%BF%D0%B8%D0%B2%D0%BE-Qiwi-orange.svg">
-</a>
-<a href="https://www.paypal.me/andreyalexeich/">
-<img src="https://img.shields.io/badge/%D0%97%D0%B0%D0%B4%D0%BE%D0%BD%D0%B0%D1%82%D1%8C%20%D0%BD%D0%B0%20%D0%BF%D0%B8%D0%B2%D0%BE-PayPal-informational.svg">
-</a>
-<a href="https://www.tinkoff.ru/cardtocard/">
-<img src="https://img.shields.io/badge/%D0%97%D0%B0%D0%B4%D0%BE%D0%BD%D0%B0%D1%82%D1%8C%20%D0%BD%D0%B0%20%D0%BF%D0%B8%D0%B2%D0%BE-%D0%9D%D0%B0%20%D0%BA%D0%B0%D1%80%D1%82%D1%83%20--%205536%209137%205288%201934-informational.svg">
-</a>
+Сборка проекта основана на разработке
+https://github.om/andreyalexeich/gulp-scss-starter.git
 
 ## Особенности
 * именование классов по [БЭМ](https://ru.bem.info/)
@@ -26,9 +14,9 @@
 
 ## Установка
 * установите [NodeJS](https://nodejs.org/en/) (если требуется) и [Yarn](https://yarnpkg.com/en/docs/install)
-* скачайте сборку с помощью [Git](https://git-scm.com/downloads): ```git clone https://github.com/andreyalexeich/gulp-scss-starter.git```
+* скачайте сборку с помощью [Git](https://git-scm.com/downloads): ```git clone https://github.com/Vintius/Alles.git```
 * установите ```gulp``` глобально: ```yarn global add gulp-cli```
-* перейдите в скачанную папку со сборкой: ```cd gulp-scss-starter```
+* перейдите в скачанную папку со сборкой: ```cd sbermarket```
 * скачайте необходимые зависимости: ```yarn```
 * чтобы начать работу, введите команду: ```yarn run dev``` (режим разработки)
 * чтобы собрать проект, введите команду ```yarn run build``` (режим сборки)
@@ -38,7 +26,7 @@
 ## Файловая структура
 
 ```
-gulp-scss-starter
+Alles
 ├── dist
 ├── gulp-tasks
 ├── src
@@ -204,15 +192,4 @@ entry: {
 }
 ```
 
-## Нужен SCSS + Pug?
-Используйте [эту](https://github.com/andreyalexeich/gulp-pug-starter/) сборку.
-
-## Нравится проект?
-Сообщайте мне о [багах](https://github.com/andreyalexeich/gulp-scss-starter/issues), ставьте звёздочку в правом верхнем углу, задонатьте мне на пиво :beer:
-* [На Qiwi](https://www.qiwi.com/n/ANDREYALEXEICH)
-* [На PayPal](https://www.paypal.me/andreyalexeich)
-* [На карту - 5536 9137 5288 1934](https://www.tinkoff.ru/cardtocard/)
-
-## Контакты
-* ВКонтакте: [@andreyalexeich](https://vk.com/andreyalexeich)
-* Telegram: [@andreyalexeich](https://t-do.ru/andreyalexeich)
+**Enjoy it!**
