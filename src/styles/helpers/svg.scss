@@ -1,0 +1,7 @@
+.svgGroup * {
+  fill: $white;
+
+  &:hover {
+    fill: $blue;
+  }
+}

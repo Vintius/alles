@@ -1,0 +1,83 @@
+.technicsHeader {
+  background: url("../img/Technics-background.png") no-repeat center/cover;
+}
+
+.technicsDesc__text {
+  font-size: 12px;
+}
+
+.technicsDesc__table {
+  line-height: 15px;
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 40px;
+  counter-reset: count;
+}
+
+.technicsDesc__tableRow {
+
+  &:nth-child(2n+3) {
+    background: $grey;
+  }
+
+  & td {
+    border-right: 1px solid $blue;
+    line-height: 12px;
+    padding: 5px 0;
+    vertical-align: middle;
+    position: relative;
+
+    &:first-child {
+      padding-left: 28px;
+      padding-right: 20px;
+      max-width: 208px;
+
+      &:before {
+        white-space: pre;
+        content: counter(count) ".";
+        counter-increment: count;
+        position: absolute;
+        left: 8px;
+        top: 50%;
+        transform: translateY(-6px);
+      }
+    }
+
+    &:not(:first-child) {
+      text-align: center;
+    }
+  }
+
+  &--header {
+    color: $blue;
+    //white-space: nowrap;
+
+    & th {
+      padding-bottom: 5px;
+
+      &:first-child {
+        text-align: left;
+        padding-left: 30px;
+        max-width: 208px;
+      }
+    }
+  }
+
+  &:nth-child(2) td {
+    padding-top: 10px;
+
+    &:first-child:before {
+      transform: translateY(-4px);
+    }
+  }
+
+  &:last-child td {
+    padding-bottom: 10px;
+
+    &:first-child:before {
+      transform: translateY(-9px);
+    }
+  }
+
+}
+

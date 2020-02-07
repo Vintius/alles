@@ -1,0 +1,140 @@
+.common {
+  position: relative;
+}
+
+.commonHeader {
+  padding: 290px 0 250px;
+}
+
+.commonHeader__title {
+  font: 52px $font-plumb;
+  color: $white;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.commonDesc {
+
+}
+
+.commonDesc__content {
+  display: flex;
+  padding-top: 42px;
+  padding-bottom: 170px;
+}
+
+.commonDesc__left {
+  padding-top: 33px;
+  text-align: center;
+  margin-right: 58px;
+}
+
+.commonDesc__commonLogo {
+  width: 184px;
+  height: 186px;
+  margin-bottom: 82px;
+}
+
+.commonDesc__arrowLine {
+
+  &--down {
+    transform: rotateX(180deg);
+  }
+}
+
+.commonDesc__quotes {
+  font: 16px $font-plumb;
+  text-transform: uppercase;
+  margin: 13px 0 14px;
+}
+
+.commonDesc__quotesTeam {
+  margin-top: 10px;
+}
+
+.commonDesc__right {
+
+}
+
+.commonDesc__title {
+  font: 25px $font-plumb;
+  color: $blue;
+  margin-bottom: 17px;
+  text-transform: uppercase;
+}
+
+.commonDesc__line {
+  width: 82px;
+  height: 1px;
+  background: $black;
+  margin-bottom: 18px;
+}
+
+.commonDesc__text {
+  line-height: 30px;
+  margin-bottom: 51px;
+}
+
+.commonDesc__textBlue {
+  color: $blue;
+  margin-right: 5px;
+}
+
+.commonDesc__requestButton {
+  display: block;
+  width: 208px;
+  height: 45px;
+  border: 2px solid $blue;
+  border-radius: 5px;
+  color: $blue;
+  background: $white;
+  transition: $transition-normal;
+
+  &:hover {
+    background: $blue;
+    color: $white;
+  }
+}
+
+@media (max-width: $mobile) {
+  .commonHeader {
+    padding: 230px 0 225px;
+  }
+
+  .commonHeader__title {
+    font-size: 30px;
+    padding: 0 43px;
+    line-height: 1.2;
+  }
+
+  .commonDesc__content {
+    flex-direction: column;
+    padding-top: 17px;
+    padding-bottom: 178px;
+  }
+
+  .commonDesc__left {
+    padding-top: 0;
+    margin-right: 0;
+  }
+
+  .commonDesc__commonLogo {
+    margin-bottom: 17px;
+  }
+
+  .commonDesc__quotesBox {
+    display: none;
+  }
+
+  .commonDesc__title {
+    text-align: center;
+  }
+
+  .commonDesc__line {
+    margin: 0 auto 18px;
+  }
+
+  .commonDesc__requestButton {
+    margin: 0 auto;
+  }
+}
