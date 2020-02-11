@@ -94,6 +94,7 @@
 /***/ (function(module, exports) {
 
 // import $ from "jquery";
+//Title Layers selector
 var $buttons = $('.js-layerButton'),
     $titleImages = $('.js-titleImage');
 $buttons.click(function (event) {
@@ -105,7 +106,7 @@ $buttons.click(function (event) {
     $cur.toggleClass('isActive');
     $titleImages.eq($cur.index()).toggleClass('isActive');
   }
-}); //maps api
+}); //Map and slides init
 
 ymaps.ready(init);
 
@@ -118,8 +119,9 @@ function init() {
       defaultIconSize = [30, 42],
       defaultIconOffset = [-16, -40],
       bigIconSize = [40, 52],
-      bigIconOffset = [-21, -50];
-  var myCollection = new ymaps.GeoObjectCollection({}, {
+      bigIconOffset = [-21, -50]; //Marks set
+
+  var marksCollection = new ymaps.GeoObjectCollection({}, {
     iconLayout: 'default#image',
     iconImageHref: 'img/svg/Pins.svg',
     iconImageSize: defaultIconSize,
@@ -128,17 +130,19 @@ function init() {
       $mapSlides = $('.js-washSlide');
 
   for (var i = 0; i < coords.length; i++) {
-    myCollection.add(new ymaps.Placemark(coords[i], {}, {}));
+    marksCollection.add(new ymaps.Placemark(coords[i], {}, {}));
   }
 
-  myMap.geoObjects.add(myCollection);
+  myMap.geoObjects.add(marksCollection); //Remove excess control elements 
+
   myMap.setType('yandex#hybrid');
-  myMap.controls.remove('searchControl').remove('geolocationControl').remove('rulerControl').remove('trafficControl').remove('fullscreenControl').remove('typeSelector');
-  myCollection.events.add('click', function (e) {
+  myMap.controls.remove('searchControl').remove('geolocationControl').remove('rulerControl').remove('trafficControl').remove('fullscreenControl').remove('typeSelector'); //Add Marks' click event 
+
+  marksCollection.events.add('click', function (e) {
     var eventTarget = e.get('target');
 
-    for (var _i = 0; _i < myCollection.getLength(); _i++) {
-      myCollection.get(_i).options.unsetAll();
+    for (var _i = 0; _i < marksCollection.getLength(); _i++) {
+      marksCollection.get(_i).options.unsetAll();
     }
 
     eventTarget.options.set({
@@ -146,10 +150,11 @@ function init() {
       iconImageOffset: bigIconOffset
     });
     $mapSlides.filter('.is-active').removeClass('is-active');
-    $mapSlides.eq(myCollection.indexOf(eventTarget)).addClass('is-active'); // debugger;
-  });
+    $mapSlides.eq(marksCollection.indexOf(eventTarget)).addClass('is-active');
+  }); //Add Slides click event
+
   $mapSlides.on('click', function () {
-    myCollection.get($(this).index()).events.fire('click');
+    marksCollection.get($(this).index()).events.fire('click');
   });
 } //// Pagination
 

@@ -1,5 +1,6 @@
 // import $ from "jquery";
 
+//Title Layers selector
 let $buttons = $('.js-layerButton'),
     $titleImages = $('.js-titleImage');
 
@@ -14,8 +15,7 @@ $buttons.click(function(event) {
     }
 });
 
-//maps api
-
+//Map and slides init
 ymaps.ready(init);
 function init(){
     let myMap = new ymaps.Map("map", {
@@ -32,7 +32,8 @@ function init(){
         bigIconSize = [40, 52],
         bigIconOffset = [-21, -50];
 
-    let myCollection = new ymaps.GeoObjectCollection({}, {
+    //Marks set
+    let marksCollection = new ymaps.GeoObjectCollection({}, {
                         iconLayout: 'default#image',
                         iconImageHref: 'img/svg/Pins.svg',
                         iconImageSize: defaultIconSize,
@@ -41,12 +42,13 @@ function init(){
         $mapSlides = $('.js-washSlide');
 
     for (let i = 0; i < coords.length; i++) {
-        myCollection.add(new ymaps.Placemark(coords[i], {}, {
+        marksCollection.add(new ymaps.Placemark(coords[i], {}, {
         }));
     }
 
-    myMap.geoObjects.add(myCollection);
-
+    myMap.geoObjects.add(marksCollection);
+    
+    //Remove excess control elements 
     myMap.setType('yandex#hybrid');
     myMap.controls.remove('searchControl')
                   .remove('geolocationControl')
@@ -55,33 +57,27 @@ function init(){
                   .remove('fullscreenControl')
                   .remove('typeSelector');
 
-    myCollection.events.add('click', function (e) {
+    //Add Marks' click event 
+    marksCollection.events.add('click', function (e) {
         let eventTarget = e.get('target');
 
-        for (let i = 0; i < myCollection.getLength(); i++){
-            myCollection.get(i).options.unsetAll();
+        for (let i = 0; i < marksCollection.getLength(); i++){
+            marksCollection.get(i).options.unsetAll();
         }
 
         eventTarget.options.set({
             iconImageSize: bigIconSize,
             iconImageOffset: bigIconOffset});
 
-
         $mapSlides.filter('.is-active').removeClass('is-active');
-        $mapSlides.eq(myCollection.indexOf(eventTarget)).addClass('is-active')
-
-        // debugger;
+        $mapSlides.eq(marksCollection.indexOf(eventTarget)).addClass('is-active')
     });
 
-
-
-
+    //Add Slides click event
     $mapSlides.on('click', function () {
-        myCollection.get($(this).index()).events.fire('click');
+        marksCollection.get($(this).index()).events.fire('click');
     });
 }
-
-
 
 //// Pagination
 

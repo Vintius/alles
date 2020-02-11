@@ -8,6 +8,7 @@ body.explorer {
   width: 100%;
   position: absolute;
   height: 100px;
+  z-index: 5;
 
   &.isFixed {
     position: fixed;

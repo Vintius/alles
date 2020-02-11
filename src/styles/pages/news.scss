@@ -1,0 +1,78 @@
+html {
+  height: 100%;
+}
+
+.news {
+  background: url("../img/Main-background.png") no-repeat center/cover;
+
+  .slick-slide {
+    width: 294px;
+    margin-right: 31px;
+  }
+}
+
+.news__content {
+  padding-top: 184px;
+
+  &.content {
+    max-width: 1900px;
+  }
+}
+
+.news__title {
+  color: $white;
+  font: 54px $font-plumb;
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+.news__slider {
+  display: flex;
+}
+
+.news__sliderItem {
+  background: $white;
+  position: relative;
+  padding: 345px 21px 24px;
+  font-size: 14px;
+  width: 294px;
+  height: 469px;
+  margin-right: 31px;
+  border-radius: 2px;
+}
+
+.news__itemDate {
+  color: $blue;
+  margin-bottom: 10px;
+}
+
+.news__itemTitle {
+  margin-bottom: 10px;
+  width: 260px;
+}
+
+.news__itemImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.news__itemText {
+  display: none;
+}
+
+.news__itemLine {
+
+}
+
+.news__itemTextTitle {
+
+}
+
+.news__itemTextBack {
+
+}
+
+.news__itemNext {
+
+}

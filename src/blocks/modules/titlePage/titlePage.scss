@@ -18,11 +18,12 @@
   width: 100%;
   height: 100%;
   z-index: -5;
+  overflow: hidden;
   transition: opacity $transition-normal;
 
   &.isActive {
     opacity: 1;
-    z-index: -1;
+    z-index: 1;
   }
 
   &--page1 {
