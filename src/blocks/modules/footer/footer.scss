@@ -4,23 +4,22 @@
   width: 100%;
   overflow: hidden;
   z-index: 5;
+  height: 68px;
+  transition: height $transition-normal;
 
-  &.news-active {
-    overflow: inherit;
+  &.has-news-active {
+    height: 323px;
 
     .footer__socials {
       position: absolute;
       right: 40px;
-      top: -251px;
+      top: 9px;
     }
 
     .footer__news {
-      height: 323px;
       bottom: 0;
-    }
-
-    .footer__newsItems {
-      bottom: 0;
+      top: 41px;
+      opacity: 1;
     }
   }
 
@@ -36,6 +35,10 @@
   padding: 0 40px 36px;
   max-width: 1900px;
   margin: 0 auto;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  left: 0;
 }
 
 .footer__copyright {
@@ -55,7 +58,6 @@
   position: absolute;
   right: 40px;
   top: 0;
-  //transition: top $transition-normal;
 }
 
 .footer__socialPic {
@@ -90,21 +92,26 @@
   transition: fill $transition-normal;
 }
 
-.footer__newsItems {
-  display: flex;
-  height: 291px;
-  padding: 37px 0 44px 86px;
-  background: $black-transparent-90;
-  width: 100%;
+.footer__news {
   position: absolute;
-  bottom: -291px;
-  overflow: hidden;
-  //transition: bottom $transition-normal;
+  bottom: -244px;
+  top: 30px;
+  width: 100%;
+  opacity: 0;
+  transition: top $transition-normal,
+              bottom $transition-normal,
+              opacity $transition-normal;
+}
+
+.footer__newsItems {
+  padding: 37px 0 41px 86px;
+  background: $black-transparent-90;
 }
 
 .footer__newsItem {
-  margin-right: 112px;
   font-size: 12px;
+  width: 212px;
+  float: left;
 
   &:nth-child(1), &:nth-child(4) {
     .footer__newsItemText {

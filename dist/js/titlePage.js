@@ -94,19 +94,19 @@
 /***/ (function(module, exports) {
 
 // import $ from "jquery";
-//Title Layers selector
+// Title Layers selector
 var $buttons = $('.js-layerButton'),
     $titleImages = $('.js-titleImage');
 $buttons.click(function (event) {
   var $cur = $(this);
 
-  if (!$cur.hasClass('isActive')) {
-    $titleImages.filter('.isActive').toggleClass('isActive');
-    $buttons.filter('.isActive').toggleClass('isActive');
-    $cur.toggleClass('isActive');
-    $titleImages.eq($cur.index()).toggleClass('isActive');
+  if (!$cur.hasClass('is-active')) {
+    $titleImages.filter('.is-active').toggleClass('is-active');
+    $buttons.filter('.is-active').toggleClass('is-active');
+    $cur.toggleClass('is-active');
+    $titleImages.eq($cur.index()).toggleClass('is-active');
   }
-}); //Map and slides init
+}); // Map and slides init
 
 ymaps.ready(init);
 
@@ -119,7 +119,7 @@ function init() {
       defaultIconSize = [30, 42],
       defaultIconOffset = [-16, -40],
       bigIconSize = [40, 52],
-      bigIconOffset = [-21, -50]; //Marks set
+      bigIconOffset = [-21, -50]; // Map marks set
 
   var marksCollection = new ymaps.GeoObjectCollection({}, {
     iconLayout: 'default#image',
@@ -133,10 +133,10 @@ function init() {
     marksCollection.add(new ymaps.Placemark(coords[i], {}, {}));
   }
 
-  myMap.geoObjects.add(marksCollection); //Remove excess control elements 
+  myMap.geoObjects.add(marksCollection); // Remove excess control elements
 
   myMap.setType('yandex#hybrid');
-  myMap.controls.remove('searchControl').remove('geolocationControl').remove('rulerControl').remove('trafficControl').remove('fullscreenControl').remove('typeSelector'); //Add Marks' click event 
+  myMap.controls.remove('searchControl').remove('geolocationControl').remove('rulerControl').remove('trafficControl').remove('fullscreenControl').remove('typeSelector'); // Add Map marks' click event
 
   marksCollection.events.add('click', function (e) {
     var eventTarget = e.get('target');
@@ -151,7 +151,7 @@ function init() {
     });
     $mapSlides.filter('.is-active').removeClass('is-active');
     $mapSlides.eq(marksCollection.indexOf(eventTarget)).addClass('is-active');
-  }); //Add Slides click event
+  }); // Add Map slides click event
 
   $mapSlides.on('click', function () {
     marksCollection.get($(this).index()).events.fire('click');
@@ -185,8 +185,8 @@ $(document).ready(function () {
       // easeParams:[1.1,0.6]
 
     });
-    $items.filter('.isActive').toggleClass('isActive');
-    $items.eq($cur.index()).toggleClass('isActive');
+    $items.filter('.is-active').toggleClass('is-active');
+    $items.eq($cur.index()).toggleClass('is-active');
   });
 
   function updatePos() {

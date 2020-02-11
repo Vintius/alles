@@ -1305,7 +1305,7 @@ body.explorer .path-rotation:before {
   transition: opacity 0.3s linear;
 }
 
-.titlePage__slide.isActive {
+.titlePage__slide.is-active {
   opacity: 1;
   z-index: 1;
 }
@@ -1347,7 +1347,7 @@ body.explorer .path-rotation:before {
   height: 40px;
 }
 
-.titlePage__layersButton--day.isActive {
+.titlePage__layersButton--day.is-active {
   background: url("../img/svg/Icon_sun_blue.svg") no-repeat center/cover;
 }
 
@@ -1358,7 +1358,7 @@ body.explorer .path-rotation:before {
   margin: 39px 0;
 }
 
-.titlePage__layersButton--night.isActive {
+.titlePage__layersButton--night.is-active {
   background: url("../img/svg/Icon_night_blue.svg") no-repeat center/cover;
 }
 
@@ -1368,7 +1368,7 @@ body.explorer .path-rotation:before {
   height: 40px;
 }
 
-.titlePage__layersButton--layers.isActive {
+.titlePage__layersButton--layers.is-active {
   background: url("../img/svg/Icon_layers_blue.svg") no-repeat center/cover;
 }
 
@@ -1542,7 +1542,7 @@ body.explorer .path-rotation:before {
   left: calc(50% - 512px);
 }
 
-.titlePage__image.isActive {
+.titlePage__image.is-active {
   opacity: 1;
 }
 
@@ -1611,25 +1611,24 @@ body.explorer .path-rotation:before {
   width: 100%;
   overflow: hidden;
   z-index: 5;
+  height: 68px;
+  transition: height 0.3s linear;
 }
 
-.footer.news-active {
-  overflow: inherit;
+.footer.has-news-active {
+  height: 323px;
 }
 
-.footer.news-active .footer__socials {
+.footer.has-news-active .footer__socials {
   position: absolute;
   right: 40px;
-  top: -251px;
+  top: 9px;
 }
 
-.footer.news-active .footer__news {
-  height: 323px;
+.footer.has-news-active .footer__news {
   bottom: 0;
-}
-
-.footer.news-active .footer__newsItems {
-  bottom: 0;
+  top: 41px;
+  opacity: 1;
 }
 
 .footer .slick-slide {
@@ -1643,6 +1642,10 @@ body.explorer .path-rotation:before {
   padding: 0 40px 36px;
   max-width: 1900px;
   margin: 0 auto;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  left: 0;
 }
 
 .footer__copyright {
@@ -1694,20 +1697,24 @@ body.explorer .path-rotation:before {
   transition: fill 0.3s linear;
 }
 
-.footer__newsItems {
-  display: flex;
-  height: 291px;
-  padding: 37px 0 44px 86px;
-  background: rgba(0, 0, 0, 0.9);
-  width: 100%;
+.footer__news {
   position: absolute;
-  bottom: -291px;
-  overflow: hidden;
+  bottom: -244px;
+  top: 30px;
+  width: 100%;
+  opacity: 0;
+  transition: top 0.3s linear, bottom 0.3s linear, opacity 0.3s linear;
+}
+
+.footer__newsItems {
+  padding: 37px 0 41px 86px;
+  background: rgba(0, 0, 0, 0.9);
 }
 
 .footer__newsItem {
-  margin-right: 112px;
   font-size: 12px;
+  width: 212px;
+  float: left;
 }
 
 .footer__newsItem:nth-child(1) .footer__newsItemText,

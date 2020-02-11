@@ -1,23 +1,42 @@
 import $ from 'jquery';
 import "slick-slider";
-import "jquery-mousewheel";
 
 let $footer = $('.js-footer'),
     $footerPics = $('.js-footer-pic'),
-    $footerSlider = $('.js-footer-slider');
+    $footerSlider = $('.js-footer-slider'),
+    isFooterSliderInited = false;
 
+// Footer news slider init
 $(document).ready(function(){
-    $footerSlider.slick({
-        infinite: false,
-        arrows: false,
-        variableWidth: true,
-        waitForAnimate: false
-        // slidesToShow: 1
+    // Open/close footer by social pics
+    $footerPics.on('click', function () {
+        if ($(this).hasClass('is-active')) {
+            $(this).removeClass('is-active');
+            $footer.removeClass('has-news-active');
+        }
+        else {
+            $footerPics.removeClass('is-active');
+            $(this).addClass('is-active');
+            $footer.addClass('has-news-active');
+
+            if (!isFooterSliderInited) {
+                $footerSlider.slick({
+                    infinite: false,
+                    arrows: false,
+                    variableWidth: true,
+                    // slidesToScroll: 1,
+                    //waitForAnimate: true
+                    slidesToShow: 6
+                });
+                isFooterSliderInited = true;
+            }
+        }
     });
 });
 
+// Footer news scroll on wheel
+/*
 $footerSlider.on('mousewheel', function(event) {
-    // console.log(event.deltaX, event.deltaY, event.deltaFactor);
     event.preventDefault();
     if (event.deltaY > 0) {
         $(this).slick('slickPrev');
@@ -26,20 +45,9 @@ $footerSlider.on('mousewheel', function(event) {
         $(this).slick('slickNext');
     }
 });
+*/
 
-$footerSlider.on('edge', function () {
-    console.log('edge was hit');
-});
+// $footerSlider.on('edge', function () {
+//     console.log('edge was hit');
+// });
 
-$footerPics.on('click', function () {
-    if ($(this).hasClass('is-active')) {
-        $(this).removeClass('is-active');
-        $footer.removeClass('news-active');
-    }
-    else {
-        $footerPics.filter('.is-active').removeClass('is-active');
-        $(this).addClass('is-active');
-        $footer.addClass('news-active');
-    }
-
-});

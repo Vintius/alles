@@ -168,46 +168,53 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var slick_slider__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! slick-slider */ "./node_modules/slick-slider/slick/slick.js");
 /* harmony import */ var slick_slider__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(slick_slider__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var jquery_mousewheel__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! jquery-mousewheel */ "./node_modules/jquery-mousewheel/jquery.mousewheel.js");
-/* harmony import */ var jquery_mousewheel__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(jquery_mousewheel__WEBPACK_IMPORTED_MODULE_2__);
-
 
 
 var $footer = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.js-footer'),
     $footerPics = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.js-footer-pic'),
-    $footerSlider = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.js-footer-slider');
+    $footerSlider = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.js-footer-slider'),
+    isFooterSliderInited = false; // Footer news slider init
+
 jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
-  $footerSlider.slick({
-    infinite: false,
-    arrows: false,
-    variableWidth: true,
-    waitForAnimate: false // slidesToShow: 1
+  // Open/close footer by social pics
+  $footerPics.on('click', function () {
+    if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).hasClass('is-active')) {
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).removeClass('is-active');
+      $footer.removeClass('has-news-active');
+    } else {
+      $footerPics.removeClass('is-active');
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).addClass('is-active');
+      $footer.addClass('has-news-active');
 
+      if (!isFooterSliderInited) {
+        $footerSlider.slick({
+          infinite: false,
+          arrows: false,
+          variableWidth: true,
+          // slidesToScroll: 1,
+          //waitForAnimate: true
+          slidesToShow: 6
+        });
+        isFooterSliderInited = true;
+      }
+    }
   });
-});
-$footerSlider.on('mousewheel', function (event) {
-  // console.log(event.deltaX, event.deltaY, event.deltaFactor);
-  event.preventDefault();
+}); // Footer news scroll on wheel
 
-  if (event.deltaY > 0) {
-    jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).slick('slickPrev');
-  } else {
-    jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).slick('slickNext');
-  }
+/*
+$footerSlider.on('mousewheel', function(event) {
+    event.preventDefault();
+    if (event.deltaY > 0) {
+        $(this).slick('slickPrev');
+    }
+    else {
+        $(this).slick('slickNext');
+    }
 });
-$footerSlider.on('edge', function () {
-  console.log('edge was hit');
-});
-$footerPics.on('click', function () {
-  if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).hasClass('is-active')) {
-    jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).removeClass('is-active');
-    $footer.removeClass('news-active');
-  } else {
-    $footerPics.filter('.is-active').removeClass('is-active');
-    jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).addClass('is-active');
-    $footer.addClass('news-active');
-  }
-});
+*/
+// $footerSlider.on('edge', function () {
+//     console.log('edge was hit');
+// });
 
 /***/ }),
 
@@ -3564,9 +3571,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var slick_slider__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! slick-slider */ "./node_modules/slick-slider/slick/slick.js");
 /* harmony import */ var slick_slider__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(slick_slider__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var jquery_mousewheel__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! jquery-mousewheel */ "./node_modules/jquery-mousewheel/jquery.mousewheel.js");
-/* harmony import */ var jquery_mousewheel__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(jquery_mousewheel__WEBPACK_IMPORTED_MODULE_2__);
-
 
 
 var $newsSlider = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.js-news-slider');
@@ -3574,18 +3578,16 @@ $newsSlider.slick({
   infinite: false,
   arrows: false,
   variableWidth: true,
-  waitForAnimate: false
-});
-$newsSlider.on('mousewheel', function (event) {
-  // console.log(event.deltaX, event.deltaY, event.deltaFactor);
-  event.preventDefault();
-
-  if (event.deltaY > 0) {
-    jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).slick('slickPrev');
-  } else {
-    jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).slick('slickNext');
-  }
-});
+  waitForAnimate: true
+}); // $newsSlider.on('mousewheel', function(event) {
+//     event.preventDefault();
+//     if (event.deltaY > 0) {
+//         $(this).slick('slickPrev');
+//     }
+//     else {
+//         $(this).slick('slickNext');
+//     }
+// });
 
 /***/ })
 

@@ -1,54 +1,53 @@
 // import $ from "jquery";
 
-//Title Layers selector
+// Title Layers selector
 let $buttons = $('.js-layerButton'),
     $titleImages = $('.js-titleImage');
 
 $buttons.click(function(event) {
     let $cur = $(this);
 
-    if (!$cur.hasClass('isActive')){
-        $titleImages.filter('.isActive').toggleClass('isActive');
-        $buttons.filter('.isActive').toggleClass('isActive');
-        $cur.toggleClass('isActive');
-        $titleImages.eq($cur.index()).toggleClass('isActive');
+    if (!$cur.hasClass('is-active')){
+        $titleImages.filter('.is-active').toggleClass('is-active');
+        $buttons.filter('.is-active').toggleClass('is-active');
+        $cur.toggleClass('is-active');
+        $titleImages.eq($cur.index()).toggleClass('is-active');
     }
 });
 
-//Map and slides init
+// Map and slides init
 ymaps.ready(init);
 function init(){
     let myMap = new ymaps.Map("map", {
-                center: [55.728870, 46.415600],
-                zoom: 5
+                    center: [55.728870, 46.415600],
+                    zoom: 5
                 }),
         coords = [
-                [54.710454, 20.512733],
-                [59.939095, 30.315868],
-                [54.989342, 73.368212]
+                    [54.710454, 20.512733],
+                    [59.939095, 30.315868],
+                    [54.989342, 73.368212]
                 ],
-        defaultIconSize = [30, 42],
-        defaultIconOffset = [-16, -40],
-        bigIconSize = [40, 52],
-        bigIconOffset = [-21, -50];
+        defaultIconSize     = [30, 42],
+        defaultIconOffset   = [-16, -40],
+        bigIconSize         = [40, 52],
+        bigIconOffset       = [-21, -50];
 
-    //Marks set
+    // Map marks set
     let marksCollection = new ymaps.GeoObjectCollection({}, {
-                        iconLayout: 'default#image',
-                        iconImageHref: 'img/svg/Pins.svg',
-                        iconImageSize: defaultIconSize,
-                        iconImageOffset: defaultIconOffset
+                            iconLayout: 'default#image',
+                            iconImageHref: 'img/svg/Pins.svg',
+                            iconImageSize: defaultIconSize,
+                            iconImageOffset: defaultIconOffset
                         }),
         $mapSlides = $('.js-washSlide');
 
     for (let i = 0; i < coords.length; i++) {
-        marksCollection.add(new ymaps.Placemark(coords[i], {}, {
-        }));
+        marksCollection.add(new ymaps.Placemark(coords[i], {}, {}));
     }
 
     myMap.geoObjects.add(marksCollection);
-    
-    //Remove excess control elements 
+
+    // Remove excess control elements
     myMap.setType('yandex#hybrid');
     myMap.controls.remove('searchControl')
                   .remove('geolocationControl')
@@ -57,36 +56,36 @@ function init(){
                   .remove('fullscreenControl')
                   .remove('typeSelector');
 
-    //Add Marks' click event 
-    marksCollection.events.add('click', function (e) {
+    // Add Map marks' click event
+    marksCollection.events.add('click', function(e) {
         let eventTarget = e.get('target');
 
-        for (let i = 0; i < marksCollection.getLength(); i++){
+        for (let i = 0; i < marksCollection.getLength(); i++) {
             marksCollection.get(i).options.unsetAll();
         }
 
         eventTarget.options.set({
             iconImageSize: bigIconSize,
-            iconImageOffset: bigIconOffset});
+            iconImageOffset: bigIconOffset
+        });
 
         $mapSlides.filter('.is-active').removeClass('is-active');
         $mapSlides.eq(marksCollection.indexOf(eventTarget)).addClass('is-active')
     });
 
-    //Add Slides click event
+    // Add Map slides click event
     $mapSlides.on('click', function () {
         marksCollection.get($(this).index()).events.fire('click');
     });
 }
 
 //// Pagination
-
 $(document).ready(function(){
-    var $dots=$(".pagination__dot"),
+    let $dots = $(".pagination__dot"),
         $current=$(".pagination__current"),
         $items=$(".js-paginationItem"),
-        spacing=parseFloat($dots.css("width"))+(parseFloat($dots.css("marginTop"))*2),
-        halfSpacing=spacing/2,
+        spacing = parseFloat($dots.css("width")) + (parseFloat($dots.css("marginTop")) * 2),
+        halfSpacing = spacing/2,
         startPos,
         // itemsSpacing=450,
         lastItem=0,
@@ -98,8 +97,8 @@ $(document).ready(function(){
 
     $dots.click(function(event){
         var $cur=$(this);
-
         var dest=($cur.index())*spacing;
+
         TweenMax.to($current.data("pos"),0.6,{
             y:startPos+dest,
             onUpdate:updatePos,
@@ -109,8 +108,8 @@ $(document).ready(function(){
             // easeParams:[1.1,0.6]
         });
 
-        $items.filter('.isActive').toggleClass('isActive');
-        $items.eq($cur.index()).toggleClass('isActive');
+        $items.filter('.is-active').toggleClass('is-active');
+        $items.eq($cur.index()).toggleClass('is-active');
     });
 
     function updatePos(){
@@ -134,7 +133,7 @@ $(document).ready(function(){
         var deltaTime=diff/(1000/60);
         lastTime=now;
         if(lastItemR!=curItemR){
-            var $bounceDot=$dots.eq(lastItemR)
+            var $bounceDot=$dots.eq(lastItemR);
             TweenMax.to($bounceDot,0.1,{
                 y:70*((curItem-lastItem)/deltaTime),
                 ease:Quad.easeOut,
