@@ -166,8 +166,7 @@ $(document).ready(function () {
       spacing = parseFloat($dots.css("width")) + parseFloat($dots.css("marginTop")) * 2,
       halfSpacing = spacing / 2,
       startPos,
-      // itemsSpacing=450,
-  lastItem = 0,
+      lastItem = 0,
       lastItemR = 0,
       lastTime = Date.now();
   startPos = $dots.eq(0).position().left;
@@ -191,15 +190,8 @@ $(document).ready(function () {
 
   function updatePos() {
     var pos = $current.data("pos").y - startPos;
-    var scale = pos % spacing;
-
-    if (scale > halfSpacing) {} // scale=halfSpacing-(scale-halfSpacing);
-    // scale=1-((scale/halfSpacing)*0.35);
-
-
     TweenMax.set($current, {
       y: pos + startPos,
-      // scale:scale*1.4,
       force3D: true
     });
     var curItem = pos / spacing,
@@ -209,7 +201,7 @@ $(document).ready(function () {
     var deltaTime = diff / (1000 / 60);
     lastTime = now;
 
-    if (lastItemR != curItemR) {
+    if (lastItemR !== curItemR) {
       var $bounceDot = $dots.eq(lastItemR);
       TweenMax.to($bounceDot, 0.1, {
         y: 70 * ((curItem - lastItem) / deltaTime),

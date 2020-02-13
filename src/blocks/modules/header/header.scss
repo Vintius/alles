@@ -10,7 +10,7 @@ body.explorer {
   height: 100px;
   z-index: 5;
 
-  &.isFixed {
+  &.is-fixed {
     position: fixed;
     background: $white;
 
@@ -49,41 +49,6 @@ body.explorer {
   max-width: 1900px;
   padding: 0 40px;
 }
-
-//.header__menuTrigger {
-//  z-index: 20;
-//  background: none;
-//
-//  &.is-active {
-//
-//    .header__menuTriggerLine {
-//
-//      &:first-child {
-//        transform: translateY(8px) rotateZ(45deg);
-//      }
-//
-//      &:nth-child(2) {
-//        opacity: 0;
-//      }
-//
-//      &:last-child {
-//        transform: translateY(-8px) rotateZ(-45deg);
-//      }
-//    }
-//  }
-//}
-//
-//.header__menuTriggerLine {
-//  width: 33px;
-//  height: 4px;
-//  background: $white;
-//  border-radius: 1.5px;
-//  transition: transform $transition-normal, opacity $transition-normal;
-//
-//  &:not(:last-child) {
-//    margin-bottom: 4px;
-//  }
-//}
 
 .header__space {
   width: 100%;
@@ -164,6 +129,10 @@ $scale: 1;			  // icon scale 68/68 default
     user-select: none;
     z-index: 20;
     cursor: pointer;
+
+    &.is-opened ~ .header__logo {
+        margin-left: 23px;
+    }
   }
 
   // transition mask
@@ -232,7 +201,7 @@ $scale: 1;			  // icon scale 68/68 default
   // dasharray is the dash size
   // need to be able to control dash space size.
 
-  .hamburglar.is-open {
+  .hamburglar.is-opened {
     position: absolute;
     top: -24px;
     left: 40px;
@@ -349,7 +318,7 @@ $scale: 1;			  // icon scale 68/68 default
 
 
   // bun animations
-  .hamburglar.is-open {
+  .hamburglar.is-opened {
     .burger-bun-top {
       animation: bun-top-out $animation linear normal;
       animation-fill-mode:forwards;
@@ -459,7 +428,7 @@ $scale: 1;			  // icon scale 68/68 default
 
 
   // burger filling
-  .hamburglar.is-open {
+  .hamburglar.is-opened {
     .burger-filling {
       animation: burger-fill-out $animation linear normal;
       animation-fill-mode:forwards;

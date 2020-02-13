@@ -4,11 +4,13 @@
   position: absolute;
   z-index: 10;
   top: -268%;
+  opacity: 0;
   transition: top $transition-normal,
               opacity 0.2s;
 
-  &.isOpened {
+  &.is-opened {
     top: 0;
+    opacity: 1;
   }
 }
 
@@ -46,7 +48,7 @@
 }
 
 .menu__middleBlock {
-  width: 39%;
+  width: 748px;
   background: $black;
   display: flex;
   align-items: center;
@@ -89,6 +91,10 @@
   width: 44px;
   vertical-align: middle;
   margin-right: 26px;
+}
+
+.menu__rightBlockLinkText {
+
 }
 
 .menu__rightBlock {

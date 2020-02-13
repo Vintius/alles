@@ -26,7 +26,7 @@ $(document).ready(function(){
                     variableWidth: true,
                     // slidesToScroll: 1,
                     //waitForAnimate: true
-                    slidesToShow: 6
+                    // slidesToShow: 6
                 });
                 isFooterSliderInited = true;
             }

@@ -80,30 +80,29 @@ function init(){
 }
 
 //// Pagination
-$(document).ready(function(){
+$(document).ready(function() {
     let $dots = $(".pagination__dot"),
-        $current=$(".pagination__current"),
-        $items=$(".js-paginationItem"),
+        $current = $(".pagination__current"),
+        $items = $(".js-paginationItem"),
         spacing = parseFloat($dots.css("width")) + (parseFloat($dots.css("marginTop")) * 2),
         halfSpacing = spacing/2,
         startPos,
-        // itemsSpacing=450,
-        lastItem=0,
-        lastItemR=0,
-        lastTime=Date.now();
+        lastItem = 0,
+        lastItemR = 0,
+        lastTime = Date.now();
 
-    startPos=$dots.eq(0).position().left;
-    $current.data("pos",{y:startPos});
+    startPos = $dots.eq(0).position().left;
+    $current.data("pos",{y: startPos});
 
-    $dots.click(function(event){
-        var $cur=$(this);
-        var dest=($cur.index())*spacing;
+    $dots.click(function(event) {
+        let $cur = $(this);
+        let dest = ($cur.index()) * spacing;
 
-        TweenMax.to($current.data("pos"),0.6,{
-            y:startPos+dest,
-            onUpdate:updatePos,
-            onComplete:updatePos,
-            ease:Quint.easeOut
+        TweenMax.to($current.data("pos"), 0.6, {
+            y: startPos+dest,
+            onUpdate: updatePos,
+            onComplete: updatePos,
+            ease: Quint.easeOut
             // ease:Elastic.easeOut,
             // easeParams:[1.1,0.6]
         });
@@ -112,41 +111,35 @@ $(document).ready(function(){
         $items.eq($cur.index()).toggleClass('is-active');
     });
 
-    function updatePos(){
-        var pos=$current.data("pos").y-startPos;
-        var scale=pos%spacing;
-        if(scale>halfSpacing){
-            // scale=halfSpacing-(scale-halfSpacing);
-        }
-        // scale=1-((scale/halfSpacing)*0.35);
-        TweenMax.set($current,{
-            y:pos+startPos,
-            // scale:scale*1.4,
-            force3D:true
+    function updatePos() {
+        let pos = $current.data("pos").y - startPos;
+        TweenMax.set($current, {
+            y: pos+startPos,
+            force3D: true
         });
 
-        var curItem=pos/spacing,
-            curItemR=Math.round(curItem);
+        let curItem = pos / spacing,
+            curItemR = Math.round(curItem);
 
-        var now=Date.now();
-        var diff=now-lastTime;
-        var deltaTime=diff/(1000/60);
-        lastTime=now;
-        if(lastItemR!=curItemR){
-            var $bounceDot=$dots.eq(lastItemR);
-            TweenMax.to($bounceDot,0.1,{
-                y:70*((curItem-lastItem)/deltaTime),
-                ease:Quad.easeOut,
-                onComplete:function(){
-                    TweenMax.to($bounceDot,1,{
-                        y:0,
-                        ease:Elastic.easeOut,
-                        easeParams:[1.1,0.5]
+        let now = Date.now();
+        let diff = now - lastTime;
+        let deltaTime = diff / (1000 / 60);
+        lastTime = now;
+        if(lastItemR !== curItemR) {
+            let $bounceDot = $dots.eq(lastItemR);
+            TweenMax.to($bounceDot, 0.1, {
+                y: 70 * ((curItem - lastItem) / deltaTime),
+                ease: Quad.easeOut,
+                onComplete: function() {
+                    TweenMax.to($bounceDot, 1, {
+                        y: 0,
+                        ease: Elastic.easeOut,
+                        easeParams: [1.1, 0.5]
                     })
                 }
             })
         }
-        lastItem=curItem;
-        lastItemR=curItemR;
+        lastItem = curItem;
+        lastItemR = curItemR;
     }
 });

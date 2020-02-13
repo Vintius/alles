@@ -190,10 +190,10 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
         $footerSlider.slick({
           infinite: false,
           arrows: false,
-          variableWidth: true,
-          // slidesToScroll: 1,
+          variableWidth: true // slidesToScroll: 1,
           //waitForAnimate: true
-          slidesToShow: 6
+          // slidesToShow: 6
+
         });
         isFooterSliderInited = true;
       }
@@ -235,9 +235,9 @@ var $header = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.js-header'),
 
 function edgeCheck() {
   if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('html').scrollTop() >= fixEdge) {
-    $header.addClass('isFixed');
+    $header.addClass('is-fixed');
   } else {
-    $header.removeClass('isFixed');
+    $header.removeClass('is-fixed');
   }
 }
 
@@ -259,8 +259,7 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).scroll(function () {
 $('document').ready(function () {
   var $trigger = $('#hamburger'),
       isClosed = true,
-      $menu = $(".js-menu"),
-      $triggerPos = $trigger.position().top;
+      $menu = $(".js-menu");
   $(document).scroll(function () {
     // $menu.offset({top: $('html').scrollTop()});
     // $trigger.position({top: $menu.offset().top});
@@ -272,40 +271,24 @@ $('document').ready(function () {
     burgerTime();
 
     if (isClosed) {
-      $menu.removeClass('isOpened');
+      $menu.removeClass('is-opened');
     } else {
-      $menu.addClass('isOpened');
+      $menu.addClass('is-opened');
     }
   });
 
   function burgerTime() {
     if (isClosed == false) {
-      $trigger.removeClass('is-open');
+      $trigger.removeClass('is-opened');
       $trigger.addClass('is-closed');
       isClosed = true;
     } else {
       $trigger.removeClass('is-closed');
-      $trigger.addClass('is-open');
+      $trigger.addClass('is-opened');
       isClosed = false;
     }
   }
-}); // let $window        = $('window');
-// let $header        = $('.js-header');
-// let $menu          = $('.js-menu');
-// let indent         = $header.innerHeight();
-// let checkMenuClass = function() {
-//     let scrollTop = $window.scrollTop();
-//     $menu.toggleClass('is-fixed', scrollTop > indent);
-// };
-//
-// $(window).on('load scroll', function() {
-//     checkMenuClass();
-// });
-//
-// $(window).on('resize', function() {
-//     indent = $header.innerHeight();
-//     checkMenuClass();
-// });
+});
 
 /***/ }),
 
@@ -3573,13 +3556,35 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var slick_slider__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(slick_slider__WEBPACK_IMPORTED_MODULE_1__);
 
 
-var $newsSlider = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.js-news-slider');
+var $newsSlider = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.js-news-slider'),
+    $showNews = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.js-show-news-button'),
+    $modalContent = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.js-modal-content'),
+    $modalClose = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.js-modal-close'),
+    $modal = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.js-modal');
 $newsSlider.slick({
   infinite: false,
   arrows: false,
   variableWidth: true,
-  waitForAnimate: true
-}); // $newsSlider.on('mousewheel', function(event) {
+  waitForAnimate: true // slidesToShow: 6
+
+});
+$showNews.on('click', function () {
+  var html = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).closest('.js-show-news').clone();
+  $modalContent.html(html);
+  jquery__WEBPACK_IMPORTED_MODULE_0___default()('.js-modal .js-show-news').removeAttr('style');
+  $modal.show();
+  jquery__WEBPACK_IMPORTED_MODULE_0___default()('.js-modal .js-modal-close').click(function () {
+    modalClose();
+  });
+});
+$modalClose.on('click', function (e) {
+  modalClose();
+});
+
+function modalClose() {
+  $modal.hide();
+  $modalContent.html('');
+} // $newsSlider.on('mousewheel', function(event) {
 //     event.preventDefault();
 //     if (event.deltaY > 0) {
 //         $(this).slick('slickPrev');

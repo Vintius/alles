@@ -8,6 +8,11 @@
 
   a {
     color: $black;
+    transition:  color $transition-normal;
+
+    &:hover {
+      color: $blue;
+    }
   }
 }
 

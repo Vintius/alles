@@ -16,6 +16,7 @@ html {
 
   &.content {
     max-width: 1900px;
+    padding-right: 0;
   }
 }
 
@@ -27,7 +28,7 @@ html {
 }
 
 .news__slider {
-  display: flex;
+  margin-left: 132px;
 }
 
 .news__sliderItem {
@@ -57,6 +58,10 @@ html {
   left: 0;
 }
 
+img.news__itemImageLarge {
+  display: none;
+}
+
 .news__itemText {
   display: none;
 }
@@ -69,10 +74,113 @@ html {
 
 }
 
-.news__itemTextBack {
+.news__itemLinkBack {
 
 }
 
-.news__itemNext {
+.news__itemLinkMore {
+  display: inherit;
+}
 
+.modal {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+
+  .modal__closeButton {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 10;
+    cursor: pointer;
+  }
+
+  .news__hideText {
+    display: none;
+  }
+
+  .news__itemImage {
+    display: none;
+  }
+
+  .news__itemImageLarge {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  .news__sliderItem {
+    padding: 0;
+    margin: 0 0 160px;
+    width: 100%;
+    height: 100%;
+  }
+
+  .news__itemTitle {
+    font: 25px $font-plumb;
+    color: $blue;
+    text-transform: uppercase;
+    width: 600px;
+    margin-bottom: 24px;
+  }
+
+  .news__itemText {
+    display: block;
+    line-height: 30px;
+  }
+
+  .news__itemLine {
+    vertical-align: top;
+    margin-top: 13px;
+  }
+
+  .news__itemTextTitle {
+    font: 25px $font-plumb;
+    color: $blue;
+    text-transform: uppercase;
+  }
+
+  .news__itemLinkMore {
+    display: none;
+  }
+
+  .news__itemLinkBack {
+    color: $blue;
+    border-bottom: 1px solid $blue;
+    cursor: pointer;
+  }
+}
+
+.modal__background {
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  right: 0;
+  //bottom: 0;
+  height: 1497px;
+  left: 0;
+  background: $white;
+  cursor: pointer;
+}
+
+.modal__content {
+  z-index: 2;
+  position: absolute;
+  top: 168px;
+  right: 0;
+  bottom: 0;
+  left: calc(50% - 307px);
+  background: #fff;
+  width: 615px;
+}
+
+.modal__closeButton {
+  position: absolute;
+}
+
+.modal__contentIn {
+  overflow-y: auto;
 }

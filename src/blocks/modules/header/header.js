@@ -5,10 +5,10 @@ let $header =$('.js-header'),
 
 function edgeCheck (){
     if ($('html').scrollTop() >= fixEdge) {
-        $header.addClass('isFixed');
+        $header.addClass('is-fixed');
     }
     else {
-        $header.removeClass('isFixed');
+        $header.removeClass('is-fixed');
     }
 }
 edgeCheck();

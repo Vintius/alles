@@ -651,27 +651,27 @@ body.explorer .path-rotation:before {
   z-index: 5;
 }
 
-.header.isFixed {
+.header.is-fixed {
   position: fixed;
   background: #fff;
 }
 
-.header.isFixed .hamburglar .path-rotation:before,
-.header.isFixed .hamburglar .burger-bun-top,
-.header.isFixed .hamburglar .burger-bun-bot,
-.header.isFixed .hamburglar .burger-filling {
+.header.is-fixed .hamburglar .path-rotation:before,
+.header.is-fixed .hamburglar .burger-bun-top,
+.header.is-fixed .hamburglar .burger-bun-bot,
+.header.is-fixed .hamburglar .burger-filling {
   background: #000;
 }
 
-.header.isFixed .hamburglar .svg-ring {
+.header.is-fixed .hamburglar .svg-ring {
   stroke: #000;
 }
 
-.header.isFixed .header__phoneImage {
+.header.is-fixed .header__phoneImage {
   fill: #000;
 }
 
-.header.isFixed .header__phone a {
+.header.is-fixed .header__phone a {
   color: #000;
 }
 
@@ -737,6 +737,10 @@ body.explorer .path-rotation:before {
   cursor: pointer;
 }
 
+.hamburglar.is-opened ~ .header__logo {
+  margin-left: 23px;
+}
+
 .path-burger {
   position: absolute;
   top: 0;
@@ -800,18 +804,18 @@ body.explorer .path-rotation:before {
   }
 }
 
-.hamburglar.is-open {
+.hamburglar.is-opened {
   position: absolute;
   top: -24px;
   left: 40px;
 }
 
-.hamburglar.is-open .path {
+.hamburglar.is-opened .path {
   animation: dash-in 0.6s linear normal;
   animation-fill-mode: forwards;
 }
 
-.hamburglar.is-open .animate-path {
+.hamburglar.is-opened .animate-path {
   animation: rotate-in 0.6s linear normal;
   animation-fill-mode: forwards;
 }
@@ -912,12 +916,12 @@ body.explorer .path-rotation:before {
   stroke: #fff;
 }
 
-.hamburglar.is-open .burger-bun-top {
+.hamburglar.is-opened .burger-bun-top {
   animation: bun-top-out 0.6s linear normal;
   animation-fill-mode: forwards;
 }
 
-.hamburglar.is-open .burger-bun-bot {
+.hamburglar.is-opened .burger-bun-bot {
   animation: bun-bot-out 0.6s linear normal;
   animation-fill-mode: forwards;
 }
@@ -1030,7 +1034,7 @@ body.explorer .path-rotation:before {
   }
 }
 
-.hamburglar.is-open .burger-filling {
+.hamburglar.is-opened .burger-filling {
   animation: burger-fill-out 0.6s linear normal;
   animation-fill-mode: forwards;
 }
@@ -1090,11 +1094,13 @@ body.explorer .path-rotation:before {
   position: absolute;
   z-index: 10;
   top: -268%;
+  opacity: 0;
   transition: top 0.3s linear, opacity 0.2s;
 }
 
-.menu.isOpened {
+.menu.is-opened {
   top: 0;
+  opacity: 1;
 }
 
 .menu__content {
@@ -1131,7 +1137,7 @@ body.explorer .path-rotation:before {
 }
 
 .menu__middleBlock {
-  width: 39%;
+  width: 748px;
   background: #000;
   display: flex;
   align-items: center;
@@ -1632,8 +1638,8 @@ body.explorer .path-rotation:before {
 }
 
 .footer .slick-slide {
-  width: 212px;
-  margin-right: 112px;
+  width: 212px !important;
+  margin-right: 112px !important;
 }
 
 .footer__content {
@@ -2025,6 +2031,11 @@ body.explorer .path-rotation:before {
 
 .contactsDesc__text a {
   color: #000;
+  transition: color 0.3s linear;
+}
+
+.contactsDesc__text a:hover {
+  color: #00b9e3;
 }
 
 .contactsDesc__textTitle {
@@ -2052,6 +2063,7 @@ html {
 
 .news__content.content {
   max-width: 1900px;
+  padding-right: 0;
 }
 
 .news__title {
@@ -2062,7 +2074,7 @@ html {
 }
 
 .news__slider {
-  display: flex;
+  margin-left: 132px;
 }
 
 .news__sliderItem {
@@ -2092,8 +2104,118 @@ html {
   left: 0;
 }
 
+img.news__itemImageLarge {
+  display: none;
+}
+
 .news__itemText {
   display: none;
+}
+
+.news__itemLinkMore {
+  display: inherit;
+}
+
+.modal {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+}
+
+.modal .modal__closeButton {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.modal .news__hideText {
+  display: none;
+}
+
+.modal .news__itemImage {
+  display: none;
+}
+
+.modal .news__itemImageLarge {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.modal .news__sliderItem {
+  padding: 0;
+  margin: 0 0 160px;
+  width: 100%;
+  height: 100%;
+}
+
+.modal .news__itemTitle {
+  font: 25px "Plumb", Arial;
+  color: #00b9e3;
+  text-transform: uppercase;
+  width: 600px;
+  margin-bottom: 24px;
+}
+
+.modal .news__itemText {
+  display: block;
+  line-height: 30px;
+}
+
+.modal .news__itemLine {
+  vertical-align: top;
+  margin-top: 13px;
+}
+
+.modal .news__itemTextTitle {
+  font: 25px "Plumb", Arial;
+  color: #00b9e3;
+  text-transform: uppercase;
+}
+
+.modal .news__itemLinkMore {
+  display: none;
+}
+
+.modal .news__itemLinkBack {
+  color: #00b9e3;
+  border-bottom: 1px solid #00b9e3;
+  cursor: pointer;
+}
+
+.modal__background {
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 1497px;
+  left: 0;
+  background: #fff;
+  cursor: pointer;
+}
+
+.modal__content {
+  z-index: 2;
+  position: absolute;
+  top: 168px;
+  right: 0;
+  bottom: 0;
+  left: calc(50% - 307px);
+  background: #fff;
+  width: 615px;
+}
+
+.modal__closeButton {
+  position: absolute;
+}
+
+.modal__contentIn {
+  overflow-y: auto;
 }
 
 @media screen and (min-width: 36rem) {
