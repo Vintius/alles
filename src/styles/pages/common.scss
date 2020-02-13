@@ -81,6 +81,10 @@
 }
 
 .commonDesc__requestButton {
+
+}
+
+.requestButton {
   display: block;
   width: 208px;
   height: 45px;
@@ -95,6 +99,8 @@
     color: $white;
   }
 }
+
+
 
 @media (max-width: $mobile) {
   .commonHeader {

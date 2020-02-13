@@ -1611,6 +1611,110 @@ body.explorer .path-rotation:before {
   transition: opacity 0.3s linear, font-weight 0.3s linear;
 }
 
+.popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 500;
+  padding-top: 167px;
+}
+
+.popup.is-active {
+  display: block;
+}
+
+.popup__background {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.8);
+  cursor: pointer;
+}
+
+.popup__content {
+  width: 385px;
+  height: 538px;
+  background: #fff;
+  margin: 0 auto;
+  padding: 84px 48px 55px;
+  position: relative;
+  border-radius: 2px;
+}
+
+.popup__closeButton {
+  position: absolute;
+  top: 21px;
+  right: 19px;
+  cursor: pointer;
+}
+
+.popup__formTitle {
+  font: 16px "Plumb", Arial;
+  color: #00b9e3;
+  text-transform: uppercase;
+  width: 264px;
+  margin: 0 auto 63px;
+}
+
+.popup__inputBox {
+  width: 290px;
+  height: 49px;
+  margin: 0 auto 19px;
+  position: relative;
+}
+
+.popup__inputBox:nth-child(5) {
+  margin-bottom: 48px;
+}
+
+.popup__inputBox span {
+  color: #b4b4b4;
+  position: absolute;
+  top: 0;
+  left: 14px;
+  bottom: 0;
+  right: 0;
+  line-height: 51px;
+  display: block;
+}
+
+.common__formInput {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  left: 0;
+  width: 100%;
+  padding: 0 12px;
+  color: transparent;
+  line-height: 45px;
+  background: transparent;
+  z-index: 10;
+  border: 2px solid #c4c4c4;
+  border-radius: 5px;
+}
+
+.common__formInput:focus {
+  background: #fff;
+  color: #00b9e3;
+}
+
+.common__formInput[type="tel"]:hover + span {
+  display: none;
+}
+
+.common__formInput:hover {
+  border-color: #00b9e3;
+}
+
+.popup__requestButton {
+  width: 100% !important;
+}
+
 .footer {
   position: absolute;
   bottom: 0;
@@ -1817,7 +1921,7 @@ body.explorer .path-rotation:before {
   margin-right: 5px;
 }
 
-.commonDesc__requestButton {
+.requestButton {
   display: block;
   width: 208px;
   height: 45px;
@@ -1828,7 +1932,7 @@ body.explorer .path-rotation:before {
   transition: 0.3s linear;
 }
 
-.commonDesc__requestButton:hover {
+.requestButton:hover {
   background: #00b9e3;
   color: #fff;
 }

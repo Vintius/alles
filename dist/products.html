@@ -482,13 +482,38 @@
                         Более подробно с перечнем продукции и стоимостью можете ознакомиться в нашем каталоге
                     </p>
                 </div>
-                <button class="commonDesc__requestButton js-request-button">
+                <button class="commonDesc__requestButton requestButton js-request-button">
                     Заказать консультацию
                 </button>
             </div>
         </div>
     </div>
-
+    <div class="popup js-popup">
+    <div class="popup__background js-popup-close"></div>
+    <div class="popup__content">
+        <svg class="popup__closeButton js-popup-close" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="12" height="12" viewBox="0 0 12 12">
+            <image id="Cross" width="12" height="12" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAAAtklEQVQokXXQPU5CQRSG4eeCS6AFoiUlvSRSSWnhpu5iDA01kFDbGhsTwbAIKnLMzM11HKaZzOR9z8/XtG27xwjPOKmfKd7wPkjwDDuMb8BbzIMLYYUvPFSkDN/jE68hHPFUkUp4ifNdqpSlbZIOaJLYwQEOeu2zFPckwdG1g0tBqtr03kPkKf4JeeZc+bv3Fx3/COWCj1j0guikEKppVNL7lUJYV+AyiCxtYqEPXPBSwKW0wc8VPIw0h/3Ch1wAAAAASUVORK5CYII="/>
+        </svg>
+        <h1 class="popup__formTitle">
+            Заполните форму, и наши специалисты обязательно с&nbsp;вами свяжутся
+        </h1>
+        <div class="popup__inputBox">
+            <input type="text" class="common__formInput">
+            <span>Имя</span>
+        </div>
+        <div class="popup__inputBox">
+            <input type="email" class="common__formInput">
+            <span>Email</span>
+        </div>
+        <div class="popup__inputBox">
+            <input type="tel" class="common__formInput js-contact-us-tel">
+            <span>+7(777)777-77-77</span>
+        </div>
+        <button class="popup__requestButton requestButton">
+            Заказать консультацию
+        </button>
+    </div>
+</div>
     <footer class="footer js-footer">
     <div class="footer__content">
         <div class="footer__copyright">

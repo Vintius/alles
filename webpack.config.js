@@ -44,7 +44,8 @@ module.exports = {
 
     resolve: {
         alias: {
-            "%modules%": path.resolve(__dirname, "src/blocks/modules")
+            "%modules%": path.resolve(__dirname, "src/blocks/modules"),
+            "jquery.inputmask": path.join(__dirname, 'node_modules/inputmask/dist/jquery.inputmask.js')
         }
     }
 };
