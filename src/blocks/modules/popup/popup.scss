@@ -52,7 +52,6 @@
   width: 290px;
   height: 49px;
   margin: 0 auto 19px;
-  //padding: 0 12px;
   position: relative;
 
   &:nth-child(5) {
@@ -71,13 +70,21 @@
   }
 }
 
+.popup__inputIcon {
+  display: none;
+  position: absolute;
+  top: 19px;
+  left: 13px;
+  z-index: 11;
+}
+
 .common__formInput {
   position: absolute;
   top: 0;
   height: 100%;
   left: 0;
   width: 100%;
-  padding: 0 12px;
+  padding: 0 32px;
   color: transparent;
   line-height: 45px;
   background: transparent;
@@ -88,10 +95,22 @@
   &:focus {
     background: $white;
     color: $blue;
+
+    & + .popup__inputIcon {
+      display: block;
+    }
   }
 
-  &[type="tel"]:hover + span {
-    display: none;
+  &[type="tel"]:hover {
+    padding: 0 12px;
+
+    & ~ span {
+      display: none;
+    }
+
+    &:focus {
+      padding: 0 32px;
+    }
   }
 
   &:hover {

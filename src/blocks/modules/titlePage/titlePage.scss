@@ -52,40 +52,37 @@
   position: absolute;
   left: 42px;
   top: calc(50% - 99px);
+  z-index: 10;
+}
+
+@mixin layersButton($url-white, $url-blue) {
+  background: url($url-white) no-repeat center/cover;
+  width: 40px;
+  height: 40px;
+
+  &.is-active {
+    background: url($url-blue) no-repeat center/cover;
+  }
 }
 
 .titlePage__layersButton {
   transition: $transition-normal;
 
   &--day {
-    background: url("../img/svg/Icon_sun_white.svg") no-repeat center/cover;
-    width: 40px;
-    height: 40px;
-
-    &.is-active {
-      background: url("../img/svg/Icon_sun_blue.svg") no-repeat center/cover;
-    }
+    @include  layersButton("../img/svg/Icon_sun_white.svg",
+                           "../img/svg/Icon_sun_blue.svg");
   }
 
   &--night {
-    background: url("../img/svg/Icon_night_white.svg") no-repeat center/cover;
-    width: 40px;
-    height: 40px;
-    margin: 39px 0;
+    @include  layersButton("../img/svg/Icon_night_white.svg",
+                           "../img/svg/Icon_night_blue.svg");
 
-    &.is-active {
-      background: url("../img/svg/Icon_night_blue.svg") no-repeat center/cover;
-    }
+    margin: 39px 0;
   }
 
   &--layers {
-    background: url("../img/svg/Icon_layers_white.svg") no-repeat center/cover;
-    width: 40px;
-    height: 40px;
-
-    &.is-active {
-      background: url("../img/svg/Icon_layers_blue.svg") no-repeat center/cover;
-    }
+    @include  layersButton("../img/svg/Icon_layers_white.svg",
+                           "../img/svg/Icon_layers_blue.svg");
   }
 }
 

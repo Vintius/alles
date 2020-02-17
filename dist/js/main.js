@@ -188,10 +188,13 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
 
       if (!isFooterSliderInited) {
         $footerSlider.slick({
-          infinite: false,
+          infinite: true,
           arrows: false,
-          variableWidth: true // slidesToScroll: 1,
-          //waitForAnimate: true
+          variableWidth: true,
+          touchThreshold: 50,
+          swipeToSlide: true //,
+          // slidesToScroll: 1,
+          // waitForAnimate: false
           // slidesToShow: 6
 
         });
@@ -199,22 +202,7 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
       }
     }
   });
-}); // Footer news scroll on wheel
-
-/*
-$footerSlider.on('mousewheel', function(event) {
-    event.preventDefault();
-    if (event.deltaY > 0) {
-        $(this).slick('slickPrev');
-    }
-    else {
-        $(this).slick('slickNext');
-    }
 });
-*/
-// $footerSlider.on('edge', function () {
-//     console.log('edge was hit');
-// });
 
 /***/ }),
 

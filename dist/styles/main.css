@@ -1202,7 +1202,7 @@ body.explorer .path-rotation:before {
   line-height: 24px;
   color: #fff;
   fill: #fff;
-  transition: 0.3s linear;
+  transition: color 0.3s linear, fill 0.3s linear;
   cursor: pointer;
   min-width: 136px;
 }
@@ -1341,6 +1341,7 @@ body.explorer .path-rotation:before {
   position: absolute;
   left: 42px;
   top: calc(50% - 99px);
+  z-index: 10;
 }
 
 .titlePage__layersButton {
@@ -1683,13 +1684,21 @@ body.explorer .path-rotation:before {
   display: block;
 }
 
+.popup__inputIcon {
+  display: none;
+  position: absolute;
+  top: 19px;
+  left: 13px;
+  z-index: 11;
+}
+
 .common__formInput {
   position: absolute;
   top: 0;
   height: 100%;
   left: 0;
   width: 100%;
-  padding: 0 12px;
+  padding: 0 32px;
   color: transparent;
   line-height: 45px;
   background: transparent;
@@ -1703,8 +1712,20 @@ body.explorer .path-rotation:before {
   color: #00b9e3;
 }
 
-.common__formInput[type="tel"]:hover + span {
+.common__formInput:focus + .popup__inputIcon {
+  display: block;
+}
+
+.common__formInput[type="tel"]:hover {
+  padding: 0 12px;
+}
+
+.common__formInput[type="tel"]:hover ~ span {
   display: none;
+}
+
+.common__formInput[type="tel"]:hover:focus {
+  padding: 0 32px;
 }
 
 .common__formInput:hover {
@@ -1727,6 +1748,10 @@ body.explorer .path-rotation:before {
 
 .footer.has-news-active {
   height: 323px;
+}
+
+.footer.has-news-active .footer__copyright {
+  opacity: 0;
 }
 
 .footer.has-news-active .footer__socials {
@@ -1752,7 +1777,7 @@ body.explorer .path-rotation:before {
   padding: 0 40px 36px;
   max-width: 1900px;
   margin: 0 auto;
-  position: absolute;
+  position: relative;
   bottom: 0;
   width: 100%;
   left: 0;
@@ -1762,6 +1787,8 @@ body.explorer .path-rotation:before {
   font-size: 12px;
   line-height: 18px;
   color: #8a8a8a;
+  opacity: 1;
+  transition: opacity 0.3s linear;
 }
 
 .footer__phone {
@@ -1848,6 +1875,11 @@ body.explorer .path-rotation:before {
 
 .footer__newsItemLink {
   color: #fff;
+  transition: color 0.3s linear;
+}
+
+.footer__newsItemLink:hover {
+  color: #00b9e3;
 }
 
 .common {
@@ -1890,7 +1922,7 @@ body.explorer .path-rotation:before {
 .commonDesc__quotes {
   font: 16px "Plumb", Arial;
   text-transform: uppercase;
-  margin: 13px 0 14px;
+  margin: 13px 0 9px;
 }
 
 .commonDesc__quotesTeam {
@@ -2343,6 +2375,68 @@ img.news__itemImageLarge {
 @media screen and (min-width: 75rem) {
   .container {
     max-width: 69.375rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .menu__leftBlock {
+    width: 28%;
+  }
+
+  .menu__rightBlock {
+    width: 0;
+  }
+
+  .menu__rightBlockLinks {
+    margin-left: -58px;
+    min-width: 0;
+  }
+
+  .menu__rightBlockLink {
+    margin-bottom: 12px;
+    min-width: 0;
+  }
+
+  .menu__rightBlockLink:hover {
+    color: #00b9e3;
+    fill: #00b9e3;
+  }
+
+  .menu__rightBlockLinkText {
+    display: none;
+  }
+
+  .menu__rightBlockSearch {
+    top: 168px;
+    right: 99px;
+    width: 179px;
+    transition: left 0.3s linear, width 0.3s linear;
+  }
+
+  .menu__rightBlockSearch:hover .menu__rightBlockSearchButton {
+    left: 147px;
+  }
+
+  .menu__rightBlockSearchButton {
+    left: 0;
+    transition: left 0.3s linear, border-color 0.3s linear;
+  }
+
+  .menu__rightBlockSearchButton:hover {
+    margin-left: 0;
+    border-color: #00b9e3;
+  }
+
+  .menu__rightBlockSearchButton:hover .menu__rightBlockSearchButtonIcon {
+    stroke: #00b9e3;
+  }
+
+  .menu__rightBlockSearchInput {
+    right: auto;
+  }
+
+  .menu__rightBlockSearchInput:focus ~ .menu__rightBlockSearchButton {
+    left: 147px;
   }
 }
 

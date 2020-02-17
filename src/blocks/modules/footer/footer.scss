@@ -10,6 +10,10 @@
   &.has-news-active {
     height: 323px;
 
+    .footer__copyright {
+      opacity: 0;
+    }
+
     .footer__socials {
       position: absolute;
       right: 40px;
@@ -35,7 +39,7 @@
   padding: 0 40px 36px;
   max-width: 1900px;
   margin: 0 auto;
-  position: absolute;
+  position: relative;
   bottom: 0;
   width: 100%;
   left: 0;
@@ -45,6 +49,8 @@
   font-size: 12px;
   line-height: 18px;
   color: $grey-uni;
+  opacity: 1;
+  transition: opacity $transition-normal;
 }
 
 .footer__phone {
@@ -136,6 +142,11 @@
 
 .footer__newsItemLink {
   color: $white;
+  transition: color $transition-normal;
+
+  &:hover {
+    color: $blue;
+  }
 }
 
 @media (max-width: $mobile) {

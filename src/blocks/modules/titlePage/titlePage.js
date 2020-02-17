@@ -85,7 +85,6 @@ $(document).ready(function() {
         $current = $(".pagination__current"),
         $items = $(".js-paginationItem"),
         spacing = parseFloat($dots.css("width")) + (parseFloat($dots.css("marginTop")) * 2),
-        halfSpacing = spacing/2,
         startPos,
         lastItem = 0,
         lastItemR = 0,
@@ -94,39 +93,39 @@ $(document).ready(function() {
     startPos = $dots.eq(0).position().left;
     $current.data("pos",{y: startPos});
 
-    $dots.click(function(event) {
-        let $cur = $(this);
-        let dest = ($cur.index()) * spacing;
+    $dots.on('click', function() {
+        let $this = $(this),
+            dest = ($this.index()) * spacing;
 
         TweenMax.to($current.data("pos"), 0.6, {
-            y: startPos+dest,
+            y: startPos + dest,
             onUpdate: updatePos,
             onComplete: updatePos,
             ease: Quint.easeOut
-            // ease:Elastic.easeOut,
-            // easeParams:[1.1,0.6]
         });
 
         $items.filter('.is-active').toggleClass('is-active');
-        $items.eq($cur.index()).toggleClass('is-active');
+        $items.eq($this.index()).toggleClass('is-active');
     });
 
     function updatePos() {
-        let pos = $current.data("pos").y - startPos;
+        let pos = $current.data("pos").y - startPos,
+            curItem = pos / spacing,
+            curItemR = Math.round(curItem),
+            now = Date.now(),
+            diff = now - lastTime,
+            deltaTime = diff / (1000 / 60);
+
         TweenMax.set($current, {
-            y: pos+startPos,
+            y: pos + startPos,
             force3D: true
         });
 
-        let curItem = pos / spacing,
-            curItemR = Math.round(curItem);
-
-        let now = Date.now();
-        let diff = now - lastTime;
-        let deltaTime = diff / (1000 / 60);
         lastTime = now;
-        if(lastItemR !== curItemR) {
+
+        if (lastItemR !== curItemR) {
             let $bounceDot = $dots.eq(lastItemR);
+
             TweenMax.to($bounceDot, 0.1, {
                 y: 70 * ((curItem - lastItem) / deltaTime),
                 ease: Quad.easeOut,
@@ -135,10 +134,11 @@ $(document).ready(function() {
                         y: 0,
                         ease: Elastic.easeOut,
                         easeParams: [1.1, 0.5]
-                    })
+                    });
                 }
             })
         }
+
         lastItem = curItem;
         lastItemR = curItemR;
     }
