@@ -15,3 +15,7 @@
   bottom: $bottom;
   left: $left;
 }
+
+@mixin focusImage($image) {
+  background: url('../img/' + $image + '.png') no-repeat 13px center;
+}

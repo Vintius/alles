@@ -85,6 +85,7 @@
   z-index: 10;
   border: 2px solid $grey-form;
   border-radius: 5px;
+  color: $blue;
 
   &:-ms-input-placeholder {
     color: #b4b4b4;
@@ -95,16 +96,11 @@
 
   &:focus {
     background: $white;
-    color: $blue;
     padding: 0 32px;
-
-    & + .popup__inputIcon {
-      display: block;
-    }
   }
 
   &[type="tel"]:hover {
-    padding: 0 12px;
+    padding: 0 14px;
 
     & ~ span {
       display: none;
@@ -117,6 +113,18 @@
 
   &:hover {
     border-color: $blue;
+  }
+
+  &[id="name_field"]:focus {
+    @include focusImage(Man-form);
+  }
+
+  &[id="email_field"]:focus {
+    @include focusImage(Mail-form);
+  }
+
+  &[id="phone_field"]:focus {
+    @include focusImage(Phone-form);
   }
 }
 

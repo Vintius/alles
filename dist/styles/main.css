@@ -1699,6 +1699,7 @@ body.explorer .path-rotation:before {
   z-index: 10;
   border: 2px solid #c4c4c4;
   border-radius: 5px;
+  color: #00b9e3;
 }
 
 .common__formInput:-ms-input-placeholder {
@@ -1711,16 +1712,11 @@ body.explorer .path-rotation:before {
 
 .common__formInput:focus {
   background: #fff;
-  color: #00b9e3;
   padding: 0 32px;
 }
 
-.common__formInput:focus + .popup__inputIcon {
-  display: block;
-}
-
 .common__formInput[type="tel"]:hover {
-  padding: 0 12px;
+  padding: 0 14px;
 }
 
 .common__formInput[type="tel"]:hover ~ span {
@@ -1733,6 +1729,18 @@ body.explorer .path-rotation:before {
 
 .common__formInput:hover {
   border-color: #00b9e3;
+}
+
+.common__formInput[id="name_field"]:focus {
+  background: url("../img/Man-form.png") no-repeat 13px center;
+}
+
+.common__formInput[id="email_field"]:focus {
+  background: url("../img/Mail-form.png") no-repeat 13px center;
+}
+
+.common__formInput[id="phone_field"]:focus {
+  background: url("../img/Phone-form.png") no-repeat 13px center;
 }
 
 .popup__requestButton {
