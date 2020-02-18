@@ -3585,9 +3585,10 @@ var $newsSlider = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.js-news-slider
     $modal = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.js-modal');
 $newsSlider.slick({
   infinite: false,
+  touchThreshold: 50,
   arrows: false,
   variableWidth: true,
-  waitForAnimate: true
+  swipeToSlide: true
 });
 $showNewsButton.on('click', function (e) {
   e.preventDefault();

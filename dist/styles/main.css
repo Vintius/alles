@@ -2265,7 +2265,7 @@ img.news__itemImageLarge {
 
 .modal {
   display: none;
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
@@ -2356,6 +2356,7 @@ img.news__itemImageLarge {
   left: calc(50% - 307px);
   background: #fff;
   width: 615px;
+  overflow-y: auto;
 }
 
 .modal__closeButton {
@@ -2363,7 +2364,7 @@ img.news__itemImageLarge {
 }
 
 .modal__contentIn {
-  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 @media screen and (min-width: 36rem) {

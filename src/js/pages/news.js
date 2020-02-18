@@ -13,9 +13,10 @@ let $newsSlider = $('.js-news-slider'),
 
 $newsSlider.slick({
     infinite: false,
+    touchThreshold: 50,
     arrows: false,
     variableWidth: true,
-    waitForAnimate: true
+    swipeToSlide: true
 });
 
 $showNewsButton.on('click', function(e) {
