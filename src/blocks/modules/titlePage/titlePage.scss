@@ -55,34 +55,20 @@
   z-index: 10;
 }
 
-@mixin layersButton($url-white, $url-blue) {
-  background: url($url-white) no-repeat center/cover;
-  width: 40px;
-  height: 40px;
-
-  &.is-active {
-    background: url($url-blue) no-repeat center/cover;
-  }
-}
-
 .titlePage__layersButton {
   transition: $transition-normal;
 
   &--day {
-    @include  layersButton("../img/svg/Icon_sun_white.svg",
-                           "../img/svg/Icon_sun_blue.svg");
+    @include layersButton(Icon_sun_white, Icon_sun_blue);
   }
 
   &--night {
-    @include  layersButton("../img/svg/Icon_night_white.svg",
-                           "../img/svg/Icon_night_blue.svg");
-
+    @include  layersButton(Icon_night_white, Icon_night_blue);
     margin: 39px 0;
   }
 
   &--layers {
-    @include  layersButton("../img/svg/Icon_layers_white.svg",
-                           "../img/svg/Icon_layers_blue.svg");
+    @include  layersButton(Icon_layers_white, Icon_layers_blue);
   }
 }
 

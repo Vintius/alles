@@ -164,7 +164,6 @@ $(document).ready(function () {
       $current = $(".pagination__current"),
       $items = $(".js-paginationItem"),
       spacing = parseFloat($dots.css("width")) + parseFloat($dots.css("marginTop")) * 2,
-      halfSpacing = spacing / 2,
       startPos,
       lastItem = 0,
       lastItemR = 0,
@@ -173,32 +172,30 @@ $(document).ready(function () {
   $current.data("pos", {
     y: startPos
   });
-  $dots.click(function (event) {
-    var $cur = $(this);
-    var dest = $cur.index() * spacing;
+  $dots.on('click', function () {
+    var $this = $(this),
+        dest = $this.index() * spacing;
     TweenMax.to($current.data("pos"), 0.6, {
       y: startPos + dest,
       onUpdate: updatePos,
       onComplete: updatePos,
-      ease: Quint.easeOut // ease:Elastic.easeOut,
-      // easeParams:[1.1,0.6]
-
+      ease: Quint.easeOut
     });
     $items.filter('.is-active').toggleClass('is-active');
-    $items.eq($cur.index()).toggleClass('is-active');
+    $items.eq($this.index()).toggleClass('is-active');
   });
 
   function updatePos() {
-    var pos = $current.data("pos").y - startPos;
+    var pos = $current.data("pos").y - startPos,
+        curItem = pos / spacing,
+        curItemR = Math.round(curItem),
+        now = Date.now(),
+        diff = now - lastTime,
+        deltaTime = diff / (1000 / 60);
     TweenMax.set($current, {
       y: pos + startPos,
       force3D: true
     });
-    var curItem = pos / spacing,
-        curItemR = Math.round(curItem);
-    var now = Date.now();
-    var diff = now - lastTime;
-    var deltaTime = diff / (1000 / 60);
     lastTime = now;
 
     if (lastItemR !== curItemR) {

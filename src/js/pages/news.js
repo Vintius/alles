@@ -1,10 +1,14 @@
 import $ from 'jquery';
 import 'slick-slider';
 
+function modalClose() {
+    $modal.hide();
+    $modalContent.html('');
+}
+
 let $newsSlider = $('.js-news-slider'),
-    $showNews = $('.js-show-news-button'),
+    $showNewsButton = $('.js-show-news-button'),
     $modalContent = $('.js-modal-content'),
-    $modalClose = $('.js-modal-close'),
     $modal = $('.js-modal');
 
 $newsSlider.slick({
@@ -12,41 +16,18 @@ $newsSlider.slick({
     arrows: false,
     variableWidth: true,
     waitForAnimate: true
-    // slidesToShow: 6
 });
 
-$showNews.on('click', function() {
+$showNewsButton.on('click', function(e) {
+    e.preventDefault();
     let html = $(this).closest('.js-show-news').clone();
 
     $modalContent.html(html);
-    $('.js-modal .js-show-news').removeAttr('style');
+    $modal.find('.js-show-news').removeAttr('style');
     $modal.show();
-    $('.js-modal .js-modal-close').click(function () {
-        modalClose();
-    });
 });
 
-$modalClose.on('click', function(e) {
+$('body').on('click', '.js-modal-close', function(e) {
+    e.preventDefault();
     modalClose();
 });
-
-function modalClose() {
-    $modal.hide();
-    $modalContent.html('');
-}
-
-
-
-
-
-
-
-// $newsSlider.on('mousewheel', function(event) {
-//     event.preventDefault();
-//     if (event.deltaY > 0) {
-//         $(this).slick('slickPrev');
-//     }
-//     else {
-//         $(this).slick('slickNext');
-//     }
-// });
