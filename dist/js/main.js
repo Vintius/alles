@@ -3469,7 +3469,7 @@ var _gsScope =  true && module.exports && "undefined" != typeof global ? global 
 
     function deviceClass() {
       if (isMobile.any()) {
-        $body.addClass('mobile');
+        $body.addClass('mobile portable');
       }
 
       if (isMobile.Android()) {
@@ -3477,7 +3477,7 @@ var _gsScope =  true && module.exports && "undefined" != typeof global ? global 
       }
 
       if (isTablet.any()) {
-        $body.addClass('tablet');
+        $body.addClass('tablet portable');
       }
 
       if (isBrowser.Firefox()) {

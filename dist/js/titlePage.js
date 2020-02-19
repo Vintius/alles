@@ -106,7 +106,16 @@ $buttons.click(function (event) {
     $cur.toggleClass('is-active');
     $titleImages.eq($cur.index()).toggleClass('is-active');
   }
-}); // Map and slides init
+}); //Opening title page points for portable devices
+// $(document).ready(function() {
+//     let $sign = $('.titlePage__sign');
+//
+//     $('body.portable').find($sign).on('click', function () {
+//         $sign.filter('.is-opened').removeClass('is-opened');
+//         $(this).addClass('is-opened');
+//     });
+// });
+// Map and slides init
 
 ymaps.ready(init);
 

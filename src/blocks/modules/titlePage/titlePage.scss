@@ -86,7 +86,7 @@
     left: -404px;
     top: -175px;
 
-    &:hover {
+    &:hover, &.is-opened {
       top: -303px;
     }
   }
@@ -95,7 +95,7 @@
     left: -144px;
     top: -187px;
 
-    &:hover {
+    &:hover, &.is-opened {
       top: -315px;
     }
   }
@@ -104,7 +104,7 @@
     left: 98px;
     top: -125px;
 
-    &:hover {
+    &:hover, &.is-opened {
       top: -253px;
     }
   }
@@ -113,7 +113,7 @@
     left: -161px;
     top: -23px;
 
-    &:hover {
+    &:hover, &.is-opened {
       top: -23px;
       left: -426px;
     }
@@ -122,7 +122,7 @@
   &--controlPanel {
     left: 131px;
 
-    &:hover {
+    &:hover, &.is-opened {
       top: 0;
       left: -134px;
     }
@@ -142,7 +142,7 @@
       bottom: 86px;
     }
 
-    &:hover {
+    &:hover, &.is-opened {
       width: 277px;
       height: 140px;
 
@@ -167,7 +167,7 @@
 
   &--bottom {
 
-    &:hover {
+    &:hover, &.is-opened {
       width: 277px;
       height: 140px;
 
@@ -201,7 +201,7 @@
     }
   }
 
-  &:hover {
+  &:hover, &.is-opened {
     .titlePage__signRect {
       visibility: visible;
     }

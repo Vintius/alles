@@ -15,6 +15,17 @@ $buttons.click(function(event) {
     }
 });
 
+//Opening title page points for portable devices
+
+// $(document).ready(function() {
+//     let $sign = $('.titlePage__sign');
+//
+//     $('body.portable').find($sign).on('click', function () {
+//         $sign.filter('.is-opened').removeClass('is-opened');
+//         $(this).addClass('is-opened');
+//     });
+// });
+
 // Map and slides init
 ymaps.ready(init);
 function init(){

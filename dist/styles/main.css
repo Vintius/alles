@@ -1395,7 +1395,8 @@ body.explorer .path-rotation:before {
   top: -175px;
 }
 
-.titlePage__sign--building:hover {
+.titlePage__sign--building:hover,
+.titlePage__sign--building.is-opened {
   top: -303px;
 }
 
@@ -1404,7 +1405,8 @@ body.explorer .path-rotation:before {
   top: -187px;
 }
 
-.titlePage__sign--technics:hover {
+.titlePage__sign--technics:hover,
+.titlePage__sign--technics.is-opened {
   top: -315px;
 }
 
@@ -1413,7 +1415,8 @@ body.explorer .path-rotation:before {
   top: -125px;
 }
 
-.titlePage__sign--construction:hover {
+.titlePage__sign--construction:hover,
+.titlePage__sign--construction.is-opened {
   top: -253px;
 }
 
@@ -1422,7 +1425,8 @@ body.explorer .path-rotation:before {
   top: -23px;
 }
 
-.titlePage__sign--cleaning:hover {
+.titlePage__sign--cleaning:hover,
+.titlePage__sign--cleaning.is-opened {
   top: -23px;
   left: -426px;
 }
@@ -1431,7 +1435,8 @@ body.explorer .path-rotation:before {
   left: 131px;
 }
 
-.titlePage__sign--controlPanel:hover {
+.titlePage__sign--controlPanel:hover,
+.titlePage__sign--controlPanel.is-opened {
   top: 0;
   left: -134px;
 }
@@ -1448,45 +1453,53 @@ body.explorer .path-rotation:before {
   bottom: 86px;
 }
 
-.titlePage__sign--top:hover {
+.titlePage__sign--top:hover,
+.titlePage__sign--top.is-opened {
   width: 277px;
   height: 140px;
 }
 
-.titlePage__sign--top:hover .titlePage__signPoint {
+.titlePage__sign--top:hover .titlePage__signPoint,
+.titlePage__sign--top.is-opened .titlePage__signPoint {
   animation: dot-pulse 2s;
   bottom: 0;
 }
 
-.titlePage__sign--top:hover .titlePage__signLine {
+.titlePage__sign--top:hover .titlePage__signLine,
+.titlePage__sign--top.is-opened .titlePage__signLine {
   transform: scale(1);
   opacity: 1;
   bottom: 8px;
   left: 8px;
 }
 
-.titlePage__sign--top:hover .titlePage__signRect {
+.titlePage__sign--top:hover .titlePage__signRect,
+.titlePage__sign--top.is-opened .titlePage__signRect {
   opacity: 1;
   bottom: 98px;
 }
 
-.titlePage__sign--bottom:hover {
+.titlePage__sign--bottom:hover,
+.titlePage__sign--bottom.is-opened {
   width: 277px;
   height: 140px;
 }
 
-.titlePage__sign--bottom:hover .titlePage__signPoint {
+.titlePage__sign--bottom:hover .titlePage__signPoint,
+.titlePage__sign--bottom.is-opened .titlePage__signPoint {
   animation: dot-pulse 2s;
   right: 0;
 }
 
-.titlePage__sign--bottom:hover .titlePage__signLine {
+.titlePage__sign--bottom:hover .titlePage__signLine,
+.titlePage__sign--bottom.is-opened .titlePage__signLine {
   transform: scale(1);
   opacity: 1;
   right: 9px;
 }
 
-.titlePage__sign--bottom:hover .titlePage__signRect {
+.titlePage__sign--bottom:hover .titlePage__signRect,
+.titlePage__sign--bottom.is-opened .titlePage__signRect {
   opacity: 1;
   right: 99px;
 }
@@ -1503,7 +1516,8 @@ body.explorer .path-rotation:before {
   right: 87px;
 }
 
-.titlePage__sign:hover .titlePage__signRect {
+.titlePage__sign:hover .titlePage__signRect,
+.titlePage__sign.is-opened .titlePage__signRect {
   visibility: visible;
 }
 
