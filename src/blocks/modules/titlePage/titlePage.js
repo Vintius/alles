@@ -27,11 +27,30 @@ $buttons.click(function(event) {
 // });
 
 // Map and slides init
+let width = $(document).width(),
+    zoom = 4,
+    $mapSlides = $('.js-wash-slide'),
+    $mapBg = $('.js-map-bg'),
+    $mapSlidesBox = $('.js-wash-slides');
+
+if (width < 720 && width >= 425) {
+   zoom = 3;
+}
+else if (width < 425){
+    zoom = 2;
+}
+
+$mapBg.on('click', function () {
+    $mapSlides.removeClass('is-active');
+    $(this).removeClass('is-active');
+    $mapSlidesBox.removeClass('is-active');
+});
+
 ymaps.ready(init);
 function init(){
     let myMap = new ymaps.Map("map", {
                     center: [55.728870, 46.415600],
-                    zoom: 5
+                    zoom: zoom
                 }),
         coords = [
                     [54.710454, 20.512733],
@@ -49,8 +68,7 @@ function init(){
                             iconImageHref: 'img/svg/Pins.svg',
                             iconImageSize: defaultIconSize,
                             iconImageOffset: defaultIconOffset
-                        }),
-        $mapSlides = $('.js-washSlide');
+                        });
 
     for (let i = 0; i < coords.length; i++) {
         marksCollection.add(new ymaps.Placemark(coords[i], {}, {}));
@@ -81,7 +99,9 @@ function init(){
         });
 
         $mapSlides.filter('.is-active').removeClass('is-active');
-        $mapSlides.eq(marksCollection.indexOf(eventTarget)).addClass('is-active')
+        $mapSlides.eq(marksCollection.indexOf(eventTarget)).addClass('is-active');
+        $mapSlidesBox.addClass('is-active');
+        $mapBg.addClass('is-active');
     });
 
     // Add Map slides click event
