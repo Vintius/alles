@@ -9,8 +9,6 @@
               opacity 0.2s;
 
   &.is-opened {
-    top: 0;
-    opacity: 1;
   }
 }
 
@@ -230,12 +228,23 @@
 }
 
 @media (max-width: $tablet) {
+  .menu__content.content {
+    padding-left: 0;
+  }
+
   .menu__leftBlock {
-    width: 28%;
+    flex-basis: 285px;
+    padding-left: 44px;
+  }
+
+  .menu__middleBlock {
+    flex-basis: 739px;
+    flex-shrink: 0;
   }
 
   .menu__rightBlock {
     width: 0;
+    padding-left: 0;
   }
 
   .menu__rightBlockLinks {
@@ -244,8 +253,11 @@
   }
 
   .menu__rightBlockLink {
-    margin-bottom: 12px;
     min-width: 0;
+
+    &:not(:last-child) {
+      margin-bottom: 12px;
+    }
 
     &:hover {
       color: $blue;
@@ -259,7 +271,7 @@
 
   .menu__rightBlockSearch {
     top: 168px;
-    right: 99px;
+    right: 134px;
     width: 179px;
     transition: left $transition-normal, width $transition-normal;
 
@@ -268,7 +280,6 @@
         left: 147px;
       }
     }
-
   }
 
   .menu__rightBlockSearchButton {
@@ -293,5 +304,98 @@
         left: 147px;
       }
     }
+  }
+
+  .burger-ring {
+    display: none;
+  }
+
+  .path-burger {
+    display: none;
+  }
+}
+
+@media (max-width: 940px) {
+  .menu {
+    width: 320px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: -320px;
+    transition: left $transition-normal, opacity $transition-normal;
+  }
+
+  .menu__content {
+    flex-direction: column;
+  }
+
+  .menu__leftBlock {
+    flex-basis: 246px;
+    padding-left: 57px;
+    font-size: 16px;
+  }
+
+  .menu__leftBlockLink {
+    line-height: 12px;
+    margin-bottom: 28px;
+  }
+
+  .menu__middleBlock {
+    flex-basis: 258px;
+  }
+
+  .menu__rightBlock {
+    flex-basis: 58px;
+  }
+
+  .menu__middleBlockLinks {
+    height: auto;
+    padding: 24px 54px 27px 55px;
+  }
+
+  .menu__middleBlockLink {
+    font-size: 16px;
+    margin-right: 0 !important;
+    margin-bottom: 24px !important;
+
+    &:last-child {
+      margin-bottom: 0 !important;
+    }
+  }
+
+  .menu__middleBlockLinkImage {
+    display: none;
+  }
+
+  .menu__rightBlock {
+    width: auto;
+    justify-content: center;
+  }
+
+  .menu__rightBlockLinks {
+    margin-left: 0;
+    line-height: 0;
+    font-size: 0;
+  }
+
+  .menu__rightBlockLink {
+    display: inline-block;
+    margin-bottom: 0 !important;
+
+    &:hover {
+      fill: $black;
+    }
+
+    &:not(:last-child) {
+      margin-right: 33px;
+    }
+  }
+
+  .menu__rightBlockLinkImage {
+    margin-right: 0;
+  }
+
+  .menu__rightBlockSearch {
+    display: none;
   }
 }

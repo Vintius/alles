@@ -150,9 +150,19 @@
 }
 
 @media (max-width: $mobile) {
+  .footer {
+    height: 130px;
+
+    &.has-news-active .footer__socials {
+      top: -218px;
+      right: calc(50% - 100px);
+    }
+  }
+
   .footer__content {
     flex-direction: column-reverse;
     padding-bottom: 20px;
+    position: absolute;
   }
 
   .footer__socials {
@@ -160,6 +170,9 @@
     width: 100%;
     max-width: 200px;
     margin: 0 auto 20px;
+    right: calc(50% - 100px);
+    top: -43px;
+    transition: top $transition-normal;
   }
 
   .footer__phone {
@@ -187,5 +200,9 @@
     span {
       border-bottom: 1px solid $grey-uni;
     }
+  }
+
+  .footer__newsItems {
+    padding-left: 57px;
   }
 }

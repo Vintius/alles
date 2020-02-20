@@ -3,7 +3,7 @@
 $('document').ready(function() {
     let $trigger = $('#hamburger'),
         isClosed = true,
-        $menu = $(".js-menu");
+        $header = $(".js-header");
 
     
     $(document).scroll(function () {
@@ -19,10 +19,10 @@ $('document').ready(function() {
         burgerTime();
 
         if (isClosed) {
-            $menu.removeClass('is-opened');
+            $header.removeClass('is-opened');
         }
         else {
-            $menu.addClass('is-opened');
+            $header.addClass('is-opened');
         }
     });
 

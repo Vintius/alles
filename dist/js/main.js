@@ -247,7 +247,7 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).scroll(function () {
 $('document').ready(function () {
   var $trigger = $('#hamburger'),
       isClosed = true,
-      $menu = $(".js-menu");
+      $header = $(".js-header");
   $(document).scroll(function () {
     // $menu.offset({top: $('html').scrollTop()});
     // $trigger.position({top: $menu.offset().top});
@@ -259,9 +259,9 @@ $('document').ready(function () {
     burgerTime();
 
     if (isClosed) {
-      $menu.removeClass('is-opened');
+      $header.removeClass('is-opened');
     } else {
-      $menu.addClass('is-opened');
+      $header.addClass('is-opened');
     }
   });
 
