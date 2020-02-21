@@ -1640,7 +1640,7 @@ body.explorer .path-rotation:before {
   left: 0;
   right: 0;
   z-index: 500;
-  padding: 167px 10px 0;
+  padding: 0 10px;
 }
 
 .popup.is-active {
@@ -1665,6 +1665,7 @@ body.explorer .path-rotation:before {
   padding: 84px 48px 55px;
   position: relative;
   border-radius: 2px;
+  top: calc(50% - 269px);
 }
 
 .popup__closeButton {
@@ -2012,6 +2013,10 @@ body.explorer .path-rotation:before {
   font-size: 12px;
 }
 
+.technicsDesc__tableBox {
+  overflow: auto;
+}
+
 .technicsDesc__table {
   line-height: 15px;
   border-collapse: collapse;
@@ -2238,6 +2243,7 @@ html {
   font: 54px "Plumb", Arial;
   text-align: center;
   margin-bottom: 70px;
+  padding-right: 20px;
 }
 
 .news__slider {
@@ -2247,7 +2253,7 @@ html {
 .news__sliderItem {
   background: #fff;
   position: relative;
-  padding: 345px 21px 24px;
+  padding: 345px 20px 24px;
   font-size: 14px;
   width: 294px;
   height: 469px;
@@ -2262,13 +2268,14 @@ html {
 
 .news__itemTitle {
   margin-bottom: 10px;
-  width: 260px;
+  max-width: 260px;
 }
 
 .news__itemImage {
   position: absolute;
   top: 0;
   left: 0;
+  width: 100%;
 }
 
 img.news__itemImageLarge {
@@ -2291,6 +2298,7 @@ img.news__itemImageLarge {
   bottom: 0;
   left: 0;
   z-index: 999;
+  padding: 0 20px;
 }
 
 .modal .modal__closeButton {
@@ -2326,7 +2334,7 @@ img.news__itemImageLarge {
   font: 25px "Plumb", Arial;
   color: #00b9e3;
   text-transform: uppercase;
-  width: 600px;
+  max-width: 600px;
   margin-bottom: 24px;
 }
 
@@ -2369,14 +2377,14 @@ img.news__itemImageLarge {
 
 .modal__content {
   z-index: 2;
-  position: absolute;
+  position: relative;
+  margin: 0 auto;
   top: 168px;
-  right: 0;
-  bottom: 0;
-  left: calc(50% - 307px);
+  height: 100%;
   background: #fff;
-  width: 615px;
+  max-width: 615px;
   overflow-y: auto;
+  padding-bottom: 150px;
 }
 
 .modal__closeButton {
@@ -2539,6 +2547,14 @@ img.news__itemImageLarge {
     height: 100%;
   }
 
+  .hamburglar {
+    transition: left 0.3s linear;
+  }
+
+  .header.is-opened .hamburglar {
+    left: 0;
+  }
+
   .menu {
     width: 320px;
     height: 100%;
@@ -2546,10 +2562,12 @@ img.news__itemImageLarge {
     top: 0;
     left: -320px;
     transition: left 0.3s linear, opacity 0.3s linear;
+    overflow: auto;
   }
 
   .menu__content {
     flex-direction: column;
+    min-height: 630px;
   }
 
   .menu__leftBlock {
@@ -2767,8 +2785,12 @@ img.news__itemImageLarge {
     height: 130px;
   }
 
+  .footer.has-news-active .footer__news {
+    z-index: 20;
+  }
+
   .footer.has-news-active .footer__socials {
-    top: -218px;
+    top: -217px;
     right: calc(50% - 100px);
   }
 
@@ -2776,6 +2798,7 @@ img.news__itemImageLarge {
     flex-direction: column-reverse;
     padding-bottom: 20px;
     position: absolute;
+    z-index: 10;
   }
 
   .footer__socials {
@@ -2859,11 +2882,59 @@ img.news__itemImageLarge {
   .commonDesc__requestButton {
     margin: 0 auto;
   }
+
+  .news .slick-slide {
+    width: 196px;
+  }
+
+  .news__content {
+    padding-top: 123px;
+  }
+
+  .news__title {
+    font-size: 36px;
+  }
+
+  .news__slider {
+    margin-left: 88px;
+  }
+
+  .news__sliderItem {
+    height: 313px;
+    padding: 227px 14px 24px;
+    font-size: 11px;
+    line-height: 11px;
+  }
+
+  .modal .news__itemTitle {
+    font-size: 20px;
+  }
+
+  .modal .news__itemTextTitle {
+    font-size: 20px;
+  }
+
+  .modal__content {
+    top: 112px;
+  }
 }
 
 @media (max-width: 425px) {
   .hamburglar {
     left: -15px;
+  }
+
+  .news__slider {
+    margin-left: 42px;
+  }
+
+  img.news__itemImage {
+    display: none;
+  }
+
+  .news__sliderItem {
+    height: 145px;
+    padding-top: 36px;
   }
 }
 /*# sourceMappingURL=maps/main.css.map */

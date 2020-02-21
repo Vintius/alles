@@ -316,6 +316,10 @@
 }
 
 @media (max-width: 940px) {
+  .header.is-opened .hamburglar {
+    left: 0;
+  }
+
   .menu {
     width: 320px;
     height: 100%;
@@ -323,10 +327,12 @@
     top: 0;
     left: -320px;
     transition: left $transition-normal, opacity $transition-normal;
+    overflow: auto;
   }
 
   .menu__content {
     flex-direction: column;
+    min-height: 630px;
   }
 
   .menu__leftBlock {
