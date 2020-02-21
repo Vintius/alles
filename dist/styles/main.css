@@ -2243,6 +2243,7 @@ html {
   font: 54px "Plumb", Arial;
   text-align: center;
   margin-bottom: 70px;
+  padding-right: 20px;
 }
 
 .news__slider {
@@ -2252,7 +2253,7 @@ html {
 .news__sliderItem {
   background: #fff;
   position: relative;
-  padding: 345px 21px 24px;
+  padding: 345px 20px 24px;
   font-size: 14px;
   width: 294px;
   height: 469px;
@@ -2267,13 +2268,14 @@ html {
 
 .news__itemTitle {
   margin-bottom: 10px;
-  width: 260px;
+  max-width: 260px;
 }
 
 .news__itemImage {
   position: absolute;
   top: 0;
   left: 0;
+  width: 100%;
 }
 
 img.news__itemImageLarge {
@@ -2874,11 +2876,47 @@ img.news__itemImageLarge {
   .commonDesc__requestButton {
     margin: 0 auto;
   }
+
+  .news .slick-slide {
+    width: 196px;
+  }
+
+  .news__content {
+    padding-top: 123px;
+  }
+
+  .news__title {
+    font-size: 36px;
+  }
+
+  .news__slider {
+    margin-left: 88px;
+  }
+
+  .news__sliderItem {
+    height: 313px;
+    padding: 227px 14px 24px;
+    font-size: 11px;
+    line-height: 11px;
+  }
 }
 
 @media (max-width: 425px) {
   .hamburglar {
     left: -15px;
+  }
+
+  .news__slider {
+    margin-left: 42px;
+  }
+
+  img.news__itemImage {
+    display: none;
+  }
+
+  .news__sliderItem {
+    height: 145px;
+    padding-top: 36px;
   }
 }
 /*# sourceMappingURL=maps/main.css.map */
