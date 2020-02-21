@@ -153,9 +153,15 @@
   .footer {
     height: 130px;
 
-    &.has-news-active .footer__socials {
-      top: -217px;
-      right: calc(50% - 100px);
+    &.has-news-active {
+      .footer__news {
+        z-index: 20;
+      }
+
+      .footer__socials {
+        top: -217px;
+        right: calc(50% - 100px);
+      }
     }
   }
 
@@ -163,6 +169,7 @@
     flex-direction: column-reverse;
     padding-bottom: 20px;
     position: absolute;
+    z-index: 10;
   }
 
   .footer__socials {
