@@ -92,6 +92,7 @@ img.news__itemImageLarge {
   bottom: 0;
   left: 0;
   z-index: 999;
+  padding: 0 20px;
 
   .modal__closeButton {
     position: absolute;
@@ -126,7 +127,7 @@ img.news__itemImageLarge {
     font: 25px $font-plumb;
     color: $blue;
     text-transform: uppercase;
-    width: 600px;
+    max-width: 600px;
     margin-bottom: 24px;
   }
 
@@ -170,14 +171,16 @@ img.news__itemImageLarge {
 
 .modal__content {
   z-index: 2;
-  position: absolute;
+  position: relative;
+  margin: 0 auto;
   top: 168px;
-  right: 0;
-  bottom: 0;
-  left: calc(50% - 307px);
+  height: 100%;
+  //bottom: 0;
+  //left: calc(50% - 307px);
   background: #fff;
-  width: 615px;
+  max-width: 615px;
   overflow-y: auto;
+  padding-bottom: 150px;
 }
 
 .modal__closeButton {
@@ -210,6 +213,20 @@ img.news__itemImageLarge {
     padding: 227px 14px 24px;
     font-size: 11px;
     line-height: 11px;
+  }
+
+  .modal {
+    .news__itemTitle {
+      font-size: 20px;
+    }
+
+    .news__itemTextTitle {
+      font-size: 20px;
+    }
+  }
+
+  .modal__content {
+    top: 112px;
   }
 }
 
