@@ -2539,6 +2539,14 @@ img.news__itemImageLarge {
     height: 100%;
   }
 
+  .hamburglar {
+    transition: left 0.3s linear;
+  }
+
+  .header.is-opened .hamburglar {
+    left: 0;
+  }
+
   .menu {
     width: 320px;
     height: 100%;

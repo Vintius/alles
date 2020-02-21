@@ -316,6 +316,10 @@
 }
 
 @media (max-width: 940px) {
+  .header.is-opened .hamburglar {
+    left: 0;
+  }
+
   .menu {
     width: 320px;
     height: 100%;

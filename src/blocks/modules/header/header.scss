@@ -492,6 +492,10 @@ $scale: 1;			  // icon scale 68/68 default
   .header.is-opened {
     height: 100%;
   }
+
+  .hamburglar {
+    transition: left $transition-normal;
+  }
 }
 
 @media (max-width: $mobile) {
