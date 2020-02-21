@@ -2554,10 +2554,12 @@ img.news__itemImageLarge {
     top: 0;
     left: -320px;
     transition: left 0.3s linear, opacity 0.3s linear;
+    overflow: auto;
   }
 
   .menu__content {
     flex-direction: column;
+    min-height: 630px;
   }
 
   .menu__leftBlock {
