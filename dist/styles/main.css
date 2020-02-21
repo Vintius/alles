@@ -1640,7 +1640,7 @@ body.explorer .path-rotation:before {
   left: 0;
   right: 0;
   z-index: 500;
-  padding: 167px 10px 0;
+  padding: 0 10px;
 }
 
 .popup.is-active {
@@ -1665,6 +1665,7 @@ body.explorer .path-rotation:before {
   padding: 84px 48px 55px;
   position: relative;
   border-radius: 2px;
+  top: calc(50% - 269px);
 }
 
 .popup__closeButton {

@@ -6,7 +6,7 @@
   left: 0;
   right: 0;
   z-index: 500;
-  padding: 167px 10px 0;
+  padding: 0 10px;
 
   &.is-active {
     display: block;
@@ -31,6 +31,7 @@
   padding: 84px 48px 55px;
   position: relative;
   border-radius: 2px;
+  top: calc(50% - 269px);
 }
 
 .popup__closeButton {
