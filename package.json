@@ -68,6 +68,7 @@
         "inputmask": "^5.0.3",
         "jquery": "^3.4.1",
         "jquery-mousewheel": "^3.1.13",
+        "jquery-touchswipe": "^1.6.19",
         "slick-slider": "^1.8.2",
         "smart-grid": "^2.1.2"
     }
