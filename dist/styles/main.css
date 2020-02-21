@@ -2013,6 +2013,10 @@ body.explorer .path-rotation:before {
   font-size: 12px;
 }
 
+.technicsDesc__tableBox {
+  overflow: auto;
+}
+
 .technicsDesc__table {
   line-height: 15px;
   border-collapse: collapse;
