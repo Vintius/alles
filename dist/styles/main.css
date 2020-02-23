@@ -2016,13 +2016,14 @@ body.explorer .path-rotation:before {
 
 .technicsDesc__tableBox {
   overflow: auto;
+  padding: 0 1px;
+  margin-bottom: 40px;
 }
 
 .technicsDesc__table {
   line-height: 15px;
   border-collapse: collapse;
   width: 100%;
-  margin-bottom: 40px;
   counter-reset: count;
 }
 
