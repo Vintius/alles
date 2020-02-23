@@ -3,7 +3,7 @@ const path = require("path");
 module.exports = {
     entry: {
         main: "./src/js/index.js",
-        titlePage: "./src/blocks/modules/titlePage/title_page.js"
+        title_page: "./src/blocks/modules/title_page/title_page.js"
     },
 
     output: {
