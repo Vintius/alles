@@ -278,10 +278,11 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()('document').ready(function () {
   // });
 
 
+  var thinMenu = 940;
   jquery__WEBPACK_IMPORTED_MODULE_0___default()('.js-menu').swipe({
     swipeStatus: function swipeStatus(event, phase, direction, distance, duration, fingerCount, fingerData, currentDirection) {
       // console.log(direction, distance);
-      if (phase === "end" && direction === "left") {
+      if (phase === "end" && direction === "left" && window.innerWidth <= thinMenu) {
         $menuTrigger.click();
       }
     },

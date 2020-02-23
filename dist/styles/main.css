@@ -746,7 +746,6 @@ body.explorer .path-rotation:before {
   user-select: none;
   z-index: 20;
   cursor: pointer;
-  transition: top 0.3s linear;
 }
 
 .path-burger {
@@ -814,9 +813,9 @@ body.explorer .path-rotation:before {
 
 .hamburglar.is-opened {
   position: absolute;
-  top: -41px;
+  top: -24px;
   left: 40px;
-  transition: transform 0.3s linear;
+  transition: top 0.3s linear, transform 0.3s linear, left 0.3s linear;
 }
 
 .hamburglar.is-opened .path {
@@ -2451,6 +2450,10 @@ img.news__itemImageLarge {
 }
 
 @media (max-width: 1024px) {
+  .hamburglar.is-opened {
+    top: -41px;
+  }
+
   .menu__content.content {
     padding-left: 0;
   }

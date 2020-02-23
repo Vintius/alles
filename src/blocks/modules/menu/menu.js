@@ -29,11 +29,13 @@ $('document').ready(function() {
     //     }
     // });
 
+    let thinMenu = 940;
+
     $('.js-menu').swipe({
         swipeStatus: function(event, phase, direction, distance, duration, fingerCount, fingerData, currentDirection) {
             // console.log(direction, distance);
 
-            if (phase === "end" && direction === "left") {
+            if (phase === "end" && direction === "left" && window.innerWidth <= thinMenu) {
                 $menuTrigger.click();
             }
         },
