@@ -27,14 +27,14 @@
   }
 
   &--page1 {
-    background: url("../img/Main-background.png") no-repeat center/cover;
+    background: url("../img/main-background.png") no-repeat center/cover;
     justify-content: center;
     align-items: center;
     padding: 0 45px;
   }
 
   &--page2 {
-    background: url("../img/Main-background-2.png") no-repeat center/cover;
+    background: url("../img/main-background-2.png") no-repeat center/cover;
     justify-content: center;
     align-items: center;
   }
@@ -60,16 +60,16 @@
   transition: $transition-normal;
 
   &--day {
-    @include layersButton(Icon_sun_white, Icon_sun_blue);
+    @include layersButton(icon_sun_white, icon_sun_blue);
   }
 
   &--night {
-    @include  layersButton(Icon_night_white, Icon_night_blue);
+    @include  layersButton(icon_night_white, icon_night_blue);
     margin: 39px 0;
   }
 
   &--layers {
-    @include  layersButton(Icon_layers_white, Icon_layers_blue);
+    @include  layersButton(icon_layers_white, icon_layers_blue);
   }
 }
 

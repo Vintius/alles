@@ -149,7 +149,7 @@ function init() {
 
   var marksCollection = new ymaps.GeoObjectCollection({}, {
     iconLayout: 'default#image',
-    iconImageHref: 'img/svg/Pins.svg',
+    iconImageHref: 'img/svg/pins.svg',
     iconImageSize: defaultIconSize,
     iconImageOffset: defaultIconOffset
   });
