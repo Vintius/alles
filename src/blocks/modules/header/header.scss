@@ -139,6 +139,7 @@ $scale: 1;			  // icon scale 68/68 default
   user-select: none;
   z-index: 20;
   cursor: pointer;
+  transition: top $transition-normal;
 }
 
 // transition mask
@@ -209,8 +210,9 @@ $scale: 1;			  // icon scale 68/68 default
 
 .hamburglar.is-opened {
   position: absolute;
-  top: -24px;
+  top: -41px;
   left: 40px;
+  transition: transform $transition-normal;
 
   .path {
     animation: dash-in $animation linear normal;

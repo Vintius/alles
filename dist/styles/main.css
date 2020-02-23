@@ -746,6 +746,7 @@ body.explorer .path-rotation:before {
   user-select: none;
   z-index: 20;
   cursor: pointer;
+  transition: top 0.3s linear;
 }
 
 .path-burger {
@@ -813,8 +814,9 @@ body.explorer .path-rotation:before {
 
 .hamburglar.is-opened {
   position: absolute;
-  top: -24px;
+  top: -41px;
   left: 40px;
+  transition: transform 0.3s linear;
 }
 
 .hamburglar.is-opened .path {
