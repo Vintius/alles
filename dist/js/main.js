@@ -252,44 +252,43 @@ __webpack_require__.r(__webpack_exports__);
 
 
 jquery__WEBPACK_IMPORTED_MODULE_0___default()('document').ready(function () {
-  var $trigger = jquery__WEBPACK_IMPORTED_MODULE_0___default()('#hamburger'),
+  var $menuTrigger = jquery__WEBPACK_IMPORTED_MODULE_0___default()('#hamburger'),
       isClosed = true,
       $header = jquery__WEBPACK_IMPORTED_MODULE_0___default()(".js-header");
 
   function burgerTime() {
     if (isClosed === false) {
-      $trigger.removeClass('is-opened');
-      $trigger.addClass('is-closed');
+      $menuTrigger.removeClass('is-opened');
+      $menuTrigger.addClass('is-closed');
       isClosed = true;
     } else {
-      $trigger.removeClass('is-closed');
-      $trigger.addClass('is-opened');
+      $menuTrigger.removeClass('is-closed');
+      $menuTrigger.addClass('is-opened');
       isClosed = false;
     }
-  }
+  } // $(window).on('scroll', function (e) {
+  //     console.log(e.currentTarget);
+  //
+  //     // e.preventDefault(); - только wheel
+  //
+  //     //debugger;
+  //     if (!isClosed) {
+  //         $menuTrigger.click();
+  //     }
+  // });
 
-  jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).on('scroll', function (e) {
-    console.log(e.target); // if (e.target) {
-    //     debugger;
-    //
-    //     return
-    // }
 
-    if (!isClosed) {
-      $trigger.click();
-    }
-  });
   jquery__WEBPACK_IMPORTED_MODULE_0___default()('.js-menu').swipe({
     swipeStatus: function swipeStatus(event, phase, direction, distance, duration, fingerCount, fingerData, currentDirection) {
       // console.log(direction, distance);
       if (phase === "end" && direction === "left") {
-        $trigger.click();
+        $menuTrigger.click();
       }
     },
     triggerOnTouchEnd: false,
     threshold: 30
   });
-  $trigger.click(function () {
+  $menuTrigger.click(function () {
     burgerTime();
 
     if (isClosed) {
