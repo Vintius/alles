@@ -278,17 +278,25 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()('document').ready(function () {
   // });
 
 
-  var thinMenu = 940;
+  var sideMenu = 940;
   jquery__WEBPACK_IMPORTED_MODULE_0___default()('.js-menu').swipe({
     swipeStatus: function swipeStatus(event, phase, direction, distance, duration, fingerCount, fingerData, currentDirection) {
-      // console.log(direction, distance);
-      if (phase === "end" && direction === "left" && window.innerWidth <= thinMenu) {
+      // console.log(event, direction, distance);
+      if (phase === "end" && direction === "left" && window.innerWidth <= sideMenu) {
         $menuTrigger.click();
       }
     },
     triggerOnTouchEnd: false,
     threshold: 30
   });
+  jquery__WEBPACK_IMPORTED_MODULE_0___default()('.js-search').click(function () {
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).focus();
+  }); // $('.menu__rightBlockSearchInput').swipe({
+  //     swipeStatus: function (event) {
+  //
+  //     }
+  // });
+
   $menuTrigger.click(function () {
     burgerTime();
 

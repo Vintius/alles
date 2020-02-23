@@ -29,19 +29,29 @@ $('document').ready(function() {
     //     }
     // });
 
-    let thinMenu = 940;
+    let sideMenu = 940;
 
     $('.js-menu').swipe({
         swipeStatus: function(event, phase, direction, distance, duration, fingerCount, fingerData, currentDirection) {
-            // console.log(direction, distance);
+            // console.log(event, direction, distance);
 
-            if (phase === "end" && direction === "left" && window.innerWidth <= thinMenu) {
+            if (phase === "end" && direction === "left" && window.innerWidth <= sideMenu) {
                 $menuTrigger.click();
             }
         },
         triggerOnTouchEnd: false,
         threshold: 30
     });
+
+    $('.js-search').click(function () {
+        $(this).focus();
+    });
+
+    // $('.menu__rightBlockSearchInput').swipe({
+    //     swipeStatus: function (event) {
+    //
+    //     }
+    // });
     
     
     $menuTrigger.click(function() {

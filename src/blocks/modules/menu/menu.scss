@@ -227,6 +227,49 @@
   }
 }
 
+@media (max-width: 1190px) {
+  .menu__middleBlock {
+    position: relative;
+  }
+
+  .menu__rightBlockSearch {
+    top: 168px;
+    right: calc(50% - 229px);
+    width: 179px;
+    transition: left $transition-normal, width $transition-normal;
+
+    &:hover {
+      .menu__rightBlockSearchButton {
+        left: 147px;
+      }
+    }
+  }
+
+  .menu__rightBlockSearchButton {
+    left: 0;
+    transition: left $transition-normal, border-color $transition-normal;
+
+    &:hover {
+      margin-left: 0;
+      border-color: $blue;
+
+      .menu__rightBlockSearchButtonIcon {
+        stroke: $blue;
+      }
+    }
+  }
+
+  .menu__rightBlockSearchInput {
+    right: auto;
+
+    &:focus {
+      & ~ .menu__rightBlockSearchButton {
+        left: 147px;
+      }
+    }
+  }
+}
+
 @media (max-width: $tablet) {
   .menu__content.content {
     padding-left: 0;
