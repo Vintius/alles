@@ -1,4 +1,4 @@
 import "./import/modules";
 import "./import/pages";
-import "./import/TweenMax.min";
+import "./import/tween_max.min";
 import "./import/detector";
