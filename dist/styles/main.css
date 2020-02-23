@@ -562,6 +562,7 @@ button {
 
 .content {
   max-width: 988px;
+  min-width: 320px;
   margin: 0 auto;
   padding: 0 20px;
 }
@@ -814,6 +815,7 @@ body.explorer .path-rotation:before {
   position: absolute;
   top: -24px;
   left: 40px;
+  transition: top 0.3s linear, transform 0.3s linear, left 0.3s linear;
 }
 
 .hamburglar.is-opened .path {
@@ -1318,14 +1320,14 @@ body.explorer .path-rotation:before {
 }
 
 .titlePage__slide--page1 {
-  background: url("../img/Main-background.png") no-repeat center/cover;
+  background: url("../img/main-background.png") no-repeat center/cover;
   justify-content: center;
   align-items: center;
   padding: 0 45px;
 }
 
 .titlePage__slide--page2 {
-  background: url("../img/Main-background-2.png") no-repeat center/cover;
+  background: url("../img/main-background-2.png") no-repeat center/cover;
   justify-content: center;
   align-items: center;
 }
@@ -1351,34 +1353,34 @@ body.explorer .path-rotation:before {
 }
 
 .titlePage__layersButton--day {
-  background: url("../img/svg/Icon_sun_white.svg") no-repeat center/cover;
+  background: url("../img/svg/icon_sun_white.svg") no-repeat center/cover;
   width: 40px;
   height: 40px;
 }
 
 .titlePage__layersButton--day.is-active {
-  background: url("../img/svg/Icon_sun_blue.svg") no-repeat center/cover;
+  background: url("../img/svg/icon_sun_blue.svg") no-repeat center/cover;
 }
 
 .titlePage__layersButton--night {
-  background: url("../img/svg/Icon_night_white.svg") no-repeat center/cover;
+  background: url("../img/svg/icon_night_white.svg") no-repeat center/cover;
   width: 40px;
   height: 40px;
   margin: 39px 0;
 }
 
 .titlePage__layersButton--night.is-active {
-  background: url("../img/svg/Icon_night_blue.svg") no-repeat center/cover;
+  background: url("../img/svg/icon_night_blue.svg") no-repeat center/cover;
 }
 
 .titlePage__layersButton--layers {
-  background: url("../img/svg/Icon_layers_white.svg") no-repeat center/cover;
+  background: url("../img/svg/icon_layers_white.svg") no-repeat center/cover;
   width: 40px;
   height: 40px;
 }
 
 .titlePage__layersButton--layers.is-active {
-  background: url("../img/svg/Icon_layers_blue.svg") no-repeat center/cover;
+  background: url("../img/svg/icon_layers_blue.svg") no-repeat center/cover;
 }
 
 .titlePage__signs {
@@ -1753,15 +1755,15 @@ body.explorer .path-rotation:before {
 }
 
 .common__formInput[id="name_field"]:focus {
-  background: url("../img/Man-form.png") no-repeat 13px center;
+  background: url("../img/man-form.png") no-repeat 13px center;
 }
 
 .common__formInput[id="email_field"]:focus {
-  background: url("../img/Mail-form.png") no-repeat 13px center;
+  background: url("../img/mail-form.png") no-repeat 13px center;
 }
 
 .common__formInput[id="phone_field"]:focus {
-  background: url("../img/Phone-form.png") no-repeat 13px center;
+  background: url("../img/phone-form.png") no-repeat 13px center;
 }
 
 .popup__requestButton {
@@ -2002,11 +2004,11 @@ body.explorer .path-rotation:before {
 }
 
 .productsHeader {
-  background: url("../img/Products-background.png") no-repeat center/cover;
+  background: url("../img/products-background.png") no-repeat center/cover;
 }
 
 .technicsHeader {
-  background: url("../img/Technics-background.png") no-repeat center/cover;
+  background: url("../img/technics-background.png") no-repeat center/cover;
 }
 
 .technicsDesc__text {
@@ -2015,13 +2017,14 @@ body.explorer .path-rotation:before {
 
 .technicsDesc__tableBox {
   overflow: auto;
+  padding: 0 1px;
+  margin-bottom: 40px;
 }
 
 .technicsDesc__table {
   line-height: 15px;
   border-collapse: collapse;
   width: 100%;
-  margin-bottom: 40px;
   counter-reset: count;
 }
 
@@ -2088,7 +2091,7 @@ body.explorer .path-rotation:before {
 }
 
 .constructionHeader {
-  background: url("../img/Construction-background.png") no-repeat center/cover;
+  background: url("../img/construction-background.png") no-repeat center/cover;
 }
 
 .constructionDesc__list {
@@ -2193,7 +2196,7 @@ body.explorer .path-rotation:before {
 }
 
 .contactsHeader {
-  background: url("../img/Contacts-background.png") no-repeat center/cover;
+  background: url("../img/contacts-background.png") no-repeat center/cover;
 }
 
 .contactsDesc__text {
@@ -2221,7 +2224,7 @@ html {
 }
 
 .news {
-  background: url("../img/Main-background.png") no-repeat center/cover;
+  background: url("../img/main-background.png") no-repeat center/cover;
 }
 
 .news .slick-slide {
@@ -2304,7 +2307,7 @@ img.news__itemImageLarge {
 .modal .modal__closeButton {
   position: absolute;
   top: 0;
-  right: 0;
+  right: 10px;
   z-index: 10;
   cursor: pointer;
 }
@@ -2325,7 +2328,7 @@ img.news__itemImageLarge {
 
 .modal .news__sliderItem {
   padding: 0;
-  margin: 0 0 160px;
+  margin: 0 0 10px;
   width: 100%;
   height: 100%;
 }
@@ -2377,14 +2380,15 @@ img.news__itemImageLarge {
 
 .modal__content {
   z-index: 2;
-  position: relative;
-  margin: 0 auto;
+  position: absolute;
   top: 168px;
-  height: 100%;
+  bottom: 168px;
+  left: 50%;
+  transform: translateX(-50%);
   background: #fff;
   max-width: 615px;
   overflow-y: auto;
-  padding-bottom: 150px;
+  width: 90%;
 }
 
 .modal__closeButton {
@@ -2438,6 +2442,45 @@ img.news__itemImageLarge {
   }
 }
 
+@media (max-width: 1190px) {
+  .menu__middleBlock {
+    position: relative;
+  }
+
+  .menu__rightBlockSearch {
+    top: 168px;
+    right: calc(50% - 229px);
+    width: 179px;
+    transition: left 0.3s linear, width 0.3s linear;
+  }
+
+  .menu__rightBlockSearch:hover .menu__rightBlockSearchButton {
+    left: 147px;
+  }
+
+  .menu__rightBlockSearchButton {
+    left: 0;
+    transition: left 0.3s linear, border-color 0.3s linear;
+  }
+
+  .menu__rightBlockSearchButton:hover {
+    margin-left: 0;
+    border-color: #00b9e3;
+  }
+
+  .menu__rightBlockSearchButton:hover .menu__rightBlockSearchButtonIcon {
+    stroke: #00b9e3;
+  }
+
+  .menu__rightBlockSearchInput {
+    right: auto;
+  }
+
+  .menu__rightBlockSearchInput:focus ~ .menu__rightBlockSearchButton {
+    left: 147px;
+  }
+}
+
 @media (max-width: 1100px) {
   .titlePage__signs,
   .titlePage__image {
@@ -2446,6 +2489,10 @@ img.news__itemImageLarge {
 }
 
 @media (max-width: 1024px) {
+  .hamburglar.is-opened {
+    top: -41px;
+  }
+
   .menu__content.content {
     padding-left: 0;
   }
@@ -2910,6 +2957,10 @@ img.news__itemImageLarge {
     font-size: 20px;
   }
 
+  .modal .news__itemText {
+    font-size: 13px;
+  }
+
   .modal .news__itemTextTitle {
     font-size: 20px;
   }
@@ -2933,8 +2984,10 @@ img.news__itemImageLarge {
   }
 
   .news__sliderItem {
-    height: 145px;
+    height: 215px;
     padding-top: 36px;
+    font-size: 13px;
+    line-height: 13px;
   }
 }
 /*# sourceMappingURL=maps/main.css.map */

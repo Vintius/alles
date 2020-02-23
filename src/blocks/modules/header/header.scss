@@ -211,6 +211,9 @@ $scale: 1;			  // icon scale 68/68 default
   position: absolute;
   top: -24px;
   left: 40px;
+  transition: top $transition-normal,
+              transform $transition-normal,
+              left $transition-normal;
 
   .path {
     animation: dash-in $animation linear normal;
@@ -485,6 +488,12 @@ $scale: 1;			  // icon scale 68/68 default
   100% {
     width: 0;
     left: 36px;
+  }
+}
+
+@media (max-width: $tablet) {
+  .hamburglar.is-opened {
+    top: -41px;
   }
 }
 

@@ -81,15 +81,15 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/blocks/modules/titlePage/titlePage.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/blocks/modules/title_page/title_page.js");
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./src/blocks/modules/titlePage/titlePage.js":
-/*!***************************************************!*\
-  !*** ./src/blocks/modules/titlePage/titlePage.js ***!
-  \***************************************************/
+/***/ "./src/blocks/modules/title_page/title_page.js":
+/*!*****************************************************!*\
+  !*** ./src/blocks/modules/title_page/title_page.js ***!
+  \*****************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -149,7 +149,7 @@ function init() {
 
   var marksCollection = new ymaps.GeoObjectCollection({}, {
     iconLayout: 'default#image',
-    iconImageHref: 'img/svg/Pins.svg',
+    iconImageHref: 'img/svg/pins.svg',
     iconImageSize: defaultIconSize,
     iconImageOffset: defaultIconOffset
   });
@@ -248,4 +248,4 @@ $(document).ready(function () {
 /***/ })
 
 /******/ });
-//# sourceMappingURL=titlePage.js.map
+//# sourceMappingURL=title_page.js.map

@@ -2,50 +2,59 @@ import $ from "jquery";
 import "jquery-touchswipe";
 
 $('document').ready(function() {
-    let $trigger = $('#hamburger'),
+    let $menuTrigger = $('#hamburger'),
         isClosed = true,
         $header = $(".js-header");
 
     function burgerTime() {
         if (isClosed === false) {
-            $trigger.removeClass('is-opened');
-            $trigger.addClass('is-closed');
+            $menuTrigger.removeClass('is-opened');
+            $menuTrigger.addClass('is-closed');
             isClosed = true;
         } else {
-            $trigger.removeClass('is-closed');
-            $trigger.addClass('is-opened');
+            $menuTrigger.removeClass('is-closed');
+            $menuTrigger.addClass('is-opened');
             isClosed = false;
         }
     }
     
-    $(document).on('scroll', function (e) {
-        console.log(e.target);
+    // $(window).on('scroll', function (e) {
+    //     console.log(e.currentTarget);
+    //
+    //     // e.preventDefault(); - только wheel
+    //
+    //     //debugger;
+    //     if (!isClosed) {
+    //         $menuTrigger.click();
+    //     }
+    // });
 
-        // if (e.target) {
-        //     debugger;
-        //
-        //     return
-        // }
-
-        if (!isClosed) {
-            $trigger.click();
-        }
-    });
+    let sideMenu = 940;
 
     $('.js-menu').swipe({
         swipeStatus: function(event, phase, direction, distance, duration, fingerCount, fingerData, currentDirection) {
-            // console.log(direction, distance);
+            // console.log(event, direction, distance);
 
-            if (phase === "end" && direction === "left") {
-                $trigger.click();
+            if (phase === "end" && direction === "left" && window.innerWidth <= sideMenu) {
+                $menuTrigger.click();
             }
         },
         triggerOnTouchEnd: false,
         threshold: 30
     });
+
+    $('.js-search').click(function () {
+        $(this).focus();
+    });
+
+    // $('.menu__rightBlockSearchInput').swipe({
+    //     swipeStatus: function (event) {
+    //
+    //     }
+    // });
     
     
-    $trigger.click(function() {
+    $menuTrigger.click(function() {
         burgerTime();
 
         if (isClosed) {

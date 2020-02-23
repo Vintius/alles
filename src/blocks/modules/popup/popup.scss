@@ -117,15 +117,15 @@
   }
 
   &[id="name_field"]:focus {
-    @include focusImage(Man-form);
+    @include focusImage(man-form);
   }
 
   &[id="email_field"]:focus {
-    @include focusImage(Mail-form);
+    @include focusImage(mail-form);
   }
 
   &[id="phone_field"]:focus {
-    @include focusImage(Phone-form);
+    @include focusImage(phone-form);
   }
 }
 

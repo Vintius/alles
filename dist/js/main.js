@@ -252,44 +252,52 @@ __webpack_require__.r(__webpack_exports__);
 
 
 jquery__WEBPACK_IMPORTED_MODULE_0___default()('document').ready(function () {
-  var $trigger = jquery__WEBPACK_IMPORTED_MODULE_0___default()('#hamburger'),
+  var $menuTrigger = jquery__WEBPACK_IMPORTED_MODULE_0___default()('#hamburger'),
       isClosed = true,
       $header = jquery__WEBPACK_IMPORTED_MODULE_0___default()(".js-header");
 
   function burgerTime() {
     if (isClosed === false) {
-      $trigger.removeClass('is-opened');
-      $trigger.addClass('is-closed');
+      $menuTrigger.removeClass('is-opened');
+      $menuTrigger.addClass('is-closed');
       isClosed = true;
     } else {
-      $trigger.removeClass('is-closed');
-      $trigger.addClass('is-opened');
+      $menuTrigger.removeClass('is-closed');
+      $menuTrigger.addClass('is-opened');
       isClosed = false;
     }
-  }
+  } // $(window).on('scroll', function (e) {
+  //     console.log(e.currentTarget);
+  //
+  //     // e.preventDefault(); - только wheel
+  //
+  //     //debugger;
+  //     if (!isClosed) {
+  //         $menuTrigger.click();
+  //     }
+  // });
 
-  jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).on('scroll', function (e) {
-    console.log(e.target); // if (e.target) {
-    //     debugger;
-    //
-    //     return
-    // }
 
-    if (!isClosed) {
-      $trigger.click();
-    }
-  });
+  var sideMenu = 940;
   jquery__WEBPACK_IMPORTED_MODULE_0___default()('.js-menu').swipe({
     swipeStatus: function swipeStatus(event, phase, direction, distance, duration, fingerCount, fingerData, currentDirection) {
-      // console.log(direction, distance);
-      if (phase === "end" && direction === "left") {
-        $trigger.click();
+      // console.log(event, direction, distance);
+      if (phase === "end" && direction === "left" && window.innerWidth <= sideMenu) {
+        $menuTrigger.click();
       }
     },
     triggerOnTouchEnd: false,
     threshold: 30
   });
-  $trigger.click(function () {
+  jquery__WEBPACK_IMPORTED_MODULE_0___default()('.js-search').click(function () {
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).focus();
+  }); // $('.menu__rightBlockSearchInput').swipe({
+  //     swipeStatus: function (event) {
+  //
+  //     }
+  // });
+
+  $menuTrigger.click(function () {
     burgerTime();
 
     if (isClosed) {
@@ -329,10 +337,135 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()('.js-popup-close').on('click', fun
 
 /***/ }),
 
-/***/ "./src/js/import/TweenMax.min.js":
-/*!***************************************!*\
-  !*** ./src/js/import/TweenMax.min.js ***!
-  \***************************************/
+/***/ "./src/js/import/detector.js":
+/*!***********************************!*\
+  !*** ./src/js/import/detector.js ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+(function ($) {
+  $(function () {
+    'use strict';
+
+    var $body = $(document.body); //detecting user browser
+
+    var isBrowser = {
+      Firefox: function Firefox() {
+        return navigator.userAgent.match(/Firefox/i);
+      },
+      IE: function IE() {
+        return navigator.userAgent.match(/MSIE/i);
+      },
+      IE11: function IE11() {
+        return navigator.userAgent.match(/Trident/i);
+      }
+    }; // detecting user device
+
+    var isMobile = {
+      Android: function Android() {
+        return navigator.userAgent.match(/Android/i) && navigator.userAgent.match(/Mobile/i);
+      },
+      BlackBerry: function BlackBerry() {
+        return navigator.userAgent.match(/BlackBerry/i);
+      },
+      iOS: function iOS() {
+        return navigator.userAgent.match(/iPhone|iPod/i);
+      },
+      Opera: function Opera() {
+        return navigator.userAgent.match(/Opera Mini/i);
+      },
+      Windows: function Windows() {
+        return navigator.userAgent.match(/IEMobile/i);
+      },
+      any: function any() {
+        return isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows();
+      }
+    };
+    var isTablet = {
+      Android: function Android() {
+        return navigator.userAgent.match(/Android/i) && !navigator.userAgent.match(/Mobile/i);
+      },
+      iOS: function iOS() {
+        return navigator.userAgent.match(/iPad/i);
+      },
+      any: function any() {
+        return isTablet.iOS() || isTablet.Android();
+      }
+    };
+
+    function deviceClass() {
+      if (isMobile.any()) {
+        $body.addClass('mobile portable');
+      }
+
+      if (isMobile.Android()) {
+        $body.addClass('android');
+      }
+
+      if (isTablet.any()) {
+        $body.addClass('tablet portable');
+      }
+
+      if (isBrowser.Firefox()) {
+        $body.addClass('firefox');
+      }
+
+      if (isBrowser.IE()) {
+        $body.addClass('explorer');
+      }
+
+      if (isBrowser.IE11()) {
+        $body.addClass('explorer');
+      }
+    }
+
+    window.isMobile = isMobile;
+    window.isTablet = isTablet;
+    deviceClass();
+  });
+})(jQuery);
+
+/***/ }),
+
+/***/ "./src/js/import/modules.js":
+/*!**********************************!*\
+  !*** ./src/js/import/modules.js ***!
+  \**********************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _modules_header_header__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! %modules%/header/header */ "./src/blocks/modules/header/header.js");
+/* harmony import */ var _modules_menu_menu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! %modules%/menu/menu */ "./src/blocks/modules/menu/menu.js");
+/* harmony import */ var _modules_popup_popup__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! %modules%/popup/popup */ "./src/blocks/modules/popup/popup.js");
+/* harmony import */ var _modules_footer_footer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! %modules%/footer/footer */ "./src/blocks/modules/footer/footer.js");
+
+
+
+
+
+/***/ }),
+
+/***/ "./src/js/import/pages.js":
+/*!********************************!*\
+  !*** ./src/js/import/pages.js ***!
+  \********************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _pages_news__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../pages/news */ "./src/js/pages/news.js");
+
+
+/***/ }),
+
+/***/ "./src/js/import/tween_max.min.js":
+/*!****************************************!*\
+  !*** ./src/js/import/tween_max.min.js ***!
+  \****************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3432,131 +3565,6 @@ var _gsScope =  true && module.exports && "undefined" != typeof global ? global 
 
 /***/ }),
 
-/***/ "./src/js/import/detector.js":
-/*!***********************************!*\
-  !*** ./src/js/import/detector.js ***!
-  \***********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-(function ($) {
-  $(function () {
-    'use strict';
-
-    var $body = $(document.body); //detecting user browser
-
-    var isBrowser = {
-      Firefox: function Firefox() {
-        return navigator.userAgent.match(/Firefox/i);
-      },
-      IE: function IE() {
-        return navigator.userAgent.match(/MSIE/i);
-      },
-      IE11: function IE11() {
-        return navigator.userAgent.match(/Trident/i);
-      }
-    }; // detecting user device
-
-    var isMobile = {
-      Android: function Android() {
-        return navigator.userAgent.match(/Android/i) && navigator.userAgent.match(/Mobile/i);
-      },
-      BlackBerry: function BlackBerry() {
-        return navigator.userAgent.match(/BlackBerry/i);
-      },
-      iOS: function iOS() {
-        return navigator.userAgent.match(/iPhone|iPod/i);
-      },
-      Opera: function Opera() {
-        return navigator.userAgent.match(/Opera Mini/i);
-      },
-      Windows: function Windows() {
-        return navigator.userAgent.match(/IEMobile/i);
-      },
-      any: function any() {
-        return isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows();
-      }
-    };
-    var isTablet = {
-      Android: function Android() {
-        return navigator.userAgent.match(/Android/i) && !navigator.userAgent.match(/Mobile/i);
-      },
-      iOS: function iOS() {
-        return navigator.userAgent.match(/iPad/i);
-      },
-      any: function any() {
-        return isTablet.iOS() || isTablet.Android();
-      }
-    };
-
-    function deviceClass() {
-      if (isMobile.any()) {
-        $body.addClass('mobile portable');
-      }
-
-      if (isMobile.Android()) {
-        $body.addClass('android');
-      }
-
-      if (isTablet.any()) {
-        $body.addClass('tablet portable');
-      }
-
-      if (isBrowser.Firefox()) {
-        $body.addClass('firefox');
-      }
-
-      if (isBrowser.IE()) {
-        $body.addClass('explorer');
-      }
-
-      if (isBrowser.IE11()) {
-        $body.addClass('explorer');
-      }
-    }
-
-    window.isMobile = isMobile;
-    window.isTablet = isTablet;
-    deviceClass();
-  });
-})(jQuery);
-
-/***/ }),
-
-/***/ "./src/js/import/modules.js":
-/*!**********************************!*\
-  !*** ./src/js/import/modules.js ***!
-  \**********************************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _modules_header_header__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! %modules%/header/header */ "./src/blocks/modules/header/header.js");
-/* harmony import */ var _modules_menu_menu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! %modules%/menu/menu */ "./src/blocks/modules/menu/menu.js");
-/* harmony import */ var _modules_popup_popup__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! %modules%/popup/popup */ "./src/blocks/modules/popup/popup.js");
-/* harmony import */ var _modules_footer_footer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! %modules%/footer/footer */ "./src/blocks/modules/footer/footer.js");
-
-
-
-
-
-/***/ }),
-
-/***/ "./src/js/import/pages.js":
-/*!********************************!*\
-  !*** ./src/js/import/pages.js ***!
-  \********************************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _pages_news__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../pages/news */ "./src/js/pages/news.js");
-
-
-/***/ }),
-
 /***/ "./src/js/index.js":
 /*!*************************!*\
   !*** ./src/js/index.js ***!
@@ -3568,8 +3576,8 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _import_modules__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./import/modules */ "./src/js/import/modules.js");
 /* harmony import */ var _import_pages__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./import/pages */ "./src/js/import/pages.js");
-/* harmony import */ var _import_TweenMax_min__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./import/TweenMax.min */ "./src/js/import/TweenMax.min.js");
-/* harmony import */ var _import_TweenMax_min__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_import_TweenMax_min__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _import_tween_max_min__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./import/tween_max.min */ "./src/js/import/tween_max.min.js");
+/* harmony import */ var _import_tween_max_min__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_import_tween_max_min__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _import_detector__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./import/detector */ "./src/js/import/detector.js");
 /* harmony import */ var _import_detector__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_import_detector__WEBPACK_IMPORTED_MODULE_3__);
 
