@@ -2112,7 +2112,16 @@ body.explorer .path-rotation:before {
   width: 26px;
   height: 26px;
   left: -53px;
-  top: 1px;
+}
+
+.constructionDesc__list li:last-child:after {
+  content: "";
+  width: 10px;
+  height: 20px;
+  position: absolute;
+  bottom: calc(50% - 33px);
+  left: -45px;
+  background: white;
 }
 
 .constructionDesc__list:first-child li:first-child:before {
@@ -2128,11 +2137,9 @@ body.explorer .path-rotation:before {
   width: 26px;
   height: 26px;
   left: -53px;
-  top: 1px;
 }
 
 .constructionDesc__list:first-child li:nth-child(20):before {
-  top: 0;
   content: "2";
   color: #fff;
   text-align: center;
@@ -2154,17 +2161,16 @@ body.explorer .path-rotation:before {
   background: #fff;
   border: 3px solid #00b9e3;
   left: -53px;
-  top: 0;
 }
 
-.constructionDesc__list:after {
+.constructionDesc__list:last-child .constructionDesc__listHeader:after {
   content: "";
-  width: 100px;
-  height: 10px;
+  width: 10px;
+  height: 20px;
+  background: #fff;
   position: absolute;
-  bottom: -7px;
-  left: -25px;
-  background: white;
+  left: -45px;
+  top: calc(50% - 33px);
 }
 
 .constructionDesc__listHeader {
@@ -2181,7 +2187,8 @@ body.explorer .path-rotation:before {
   border-radius: 50%;
   position: absolute;
   left: -68px;
-  top: -14px;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .constructionDesc__listItem:before {
@@ -2192,7 +2199,8 @@ body.explorer .path-rotation:before {
   border-radius: 50%;
   position: absolute;
   left: -46px;
-  top: 9px;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .contactsHeader {

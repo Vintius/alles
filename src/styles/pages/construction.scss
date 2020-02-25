@@ -17,12 +17,23 @@
     list-style: none;
     position: relative;
 
-    &:last-child:before {
-      content: "";
-      width: 26px;
-      height: 26px;
-      left: -53px;
-      top: 1px;
+    &:last-child {
+      &:before {
+        content: "";
+        width: 26px;
+        height: 26px;
+        left: -53px;
+      }
+
+      &:after {
+        content: "";
+        width: 10px;
+        height: 20px;
+        position: absolute;
+        bottom: calc(50% - 33px);
+        left: -45px;
+        background: white;
+      }
     }
   }
 
@@ -41,11 +52,10 @@
       width: 26px;
       height: 26px;
       left: -53px;
-      top: 1px;
     }
 
     &:nth-child(20):before {
-      top: 0;
+      //top: 0;
       content: "2";
       color: $white;
       text-align: center;
@@ -69,18 +79,17 @@
       background: $white;
       border: 3px solid $blue;
       left: -53px;
-      top: 0;
     }
-  }
 
-  &:after {
-    content: "";
-    width: 100px;
-    height: 10px;
-    position: absolute;
-    bottom: -7px;
-    left: -25px;
-    background: white;
+    & .constructionDesc__listHeader:after {
+      content: "";
+      width: 10px;
+      height: 20px;
+      background: $white;
+      position: absolute;
+      left: -45px;
+      top: calc(50% - 33px);
+    }
   }
 }
 
@@ -97,7 +106,8 @@
     border-radius: 50%;
     position: absolute;
     left: -68px;
-    top: -14px;
+    top: 50%;
+    transform: translateY(-50%);
   }
 }
 
@@ -109,5 +119,6 @@
   border-radius: 50%;
   position: absolute;
   left: -46px;
-  top: 9px;
+  top: 50%;
+  transform: translateY(-50%);
 }
