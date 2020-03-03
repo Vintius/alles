@@ -1,6 +1,6 @@
 # Alles
 
-Для визуального просмотра запустить ярлык index.html  
+Для визуального просмотра: скачать проект, запустить ярлык index.html  
 
 Сборка проекта основана на разработке
 https://github.com/andreyalexeich/gulp-scss-starter.git
